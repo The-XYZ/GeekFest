@@ -42,16 +42,6 @@
             android:indeterminate="true"/>
     </FrameLayout>
 
-    <com.getbase.floatingactionbutton.FloatingActionButton
-        android:id="@+id/cook"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|right"
-        android:layout_marginBottom="12dp"
-        android:layout_marginRight="12dp"
-        fab:fab_colorNormal="@color/pink"
-        fab:fab_colorPressed="@color/pink_pressed"
-        fab:fab_icon="@drawable/chef" />
+
 
 </FrameLayout>

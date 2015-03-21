@@ -13,6 +13,9 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.text.SpannableString;
 import android.util.TypedValue;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.AbsListView;
@@ -55,9 +58,6 @@ public class MainActivity extends ActionBarActivity implements ScrollTabHolder, 
     private SpannableString mSpannableString;
     private AlphaForegroundColorSpan mAlphaForegroundColorSpan;
 
-    String[] Titles;
-
-    private String URL_MANDIS = "https://data.gov.in/api/datastore/resource.json?resource_id=9ef84268-d588-465a-a308-a864a43d0070&api-key=7e3b37ca86aaa795df047decb82d14a5";
 
 
     public String loadJSONFromAsset() {
@@ -117,15 +117,7 @@ public class MainActivity extends ActionBarActivity implements ScrollTabHolder, 
         mSpannableString = new SpannableString("Geek Fest");
         mAlphaForegroundColorSpan = new AlphaForegroundColorSpan(0xffffffff);
 
-        floatingActionButton = (FloatingActionButton) findViewById(R.id.cook);
-        floatingActionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, RecipeActivity.class);
-                startActivity(i);
-            }
-        });
-        //floatingActionButton.setBackgroundResource(R.drawable.chef);
+
 
     }
 
@@ -221,7 +213,9 @@ public class MainActivity extends ActionBarActivity implements ScrollTabHolder, 
     public class PagerAdapter extends FragmentPagerAdapter {
 
         private SparseArrayCompat<ScrollTabHolder> mScrollTabHolders;
-        private final String[] TITLES = { "Agra", "Gonda", "Faizabad", "Etawah","Khekda","Khurja","Firozabad"};
+
+        private final String[] TITLES = {"Agra", "Gonda", "Faizabad","Badayoun","Khurja","Firozabad"};
+
         private ScrollTabHolder mListener;
 
         public PagerAdapter(FragmentManager fm) {
@@ -260,4 +254,27 @@ public class MainActivity extends ActionBarActivity implements ScrollTabHolder, 
         }
 
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+        return super.onCreateOptionsMenu(menu);
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle presses on the action bar items
+        switch (item.getItemId()) {
+            case R.id.save:
+                startActivity(new Intent(MainActivity.this, RecipeActivity.class));
+                //openSearch();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
 }

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,10 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
+import com.flaviofaria.kenburnsview.KenBurnsView;
 import com.pkmmte.view.CircularImageView;
 import com.xyz.geekfest.Helperclasses.ScrollTabHolderFragment;
 
@@ -45,6 +41,7 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
     String item="butter";
     String itemno;
     String itemname;
+    KenBurnsView kenBurnsView;
 
     ArrayList<String> namelist = new ArrayList<String>();
     ArrayList<String> pricelist = new ArrayList<String>();
@@ -105,67 +102,13 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
 
         mListView = (ListView) v.findViewById(R.id.listView);
         progressBar=(SmoothProgressBar) ((MainActivity)getActivity()).findViewById(R.id.google_now);
+        kenBurnsView=(KenBurnsView) ((MainActivity)getActivity()).findViewById(R.id.header_picture);
 
         View placeHolderView = inflater.inflate(R.layout.view_header_placeholder, mListView, false);
         mListView.addHeaderView(placeHolderView);
 
         q = new MyAdapter3(getActivity(), 0, list3);
         q.setNotifyOnChange(true);
-        loadData();
-        URL_NO_SEARCH="http://api.nal.usda.gov/usda/ndb/search/?format=json&q="+item+"&sort=n&max=25&offset=0&api_key=ELqzBqg05z4iZKEj5uX8SnFo5mzIpWbYhAbDP3M9";
-        JsonObjectRequest jsonReq = new JsonObjectRequest(Request.Method.GET,
-                URL_NO_SEARCH, (String)null, new Response.Listener<JSONObject>() {
-
-            @Override
-            public void onResponse(JSONObject response) {
-
-                if (response != null) {
-                    getItemNo(response);
-                }
-            }
-        }, new Response.ErrorListener() {
-
-            @Override
-            public void onErrorResponse(VolleyError error) {
-
-
-            }
-        });
-        AppController.getInstance().addToRequestQueue(jsonReq);
-
-        return v;
-    }
-    private void getItemNo(JSONObject response){
-        try {
-            JSONObject nutrient=response.getJSONObject("list");
-            JSONArray array=nutrient.getJSONArray("item");
-
-
-
-            for (int i=0;i<array.length();i++){
-           
-
-
-                itemname=array.getJSONObject(i).getString("name");
-                if (itemname.substring(0,item.length()).equals(item));
-                {
-                    itemno = array.getJSONObject(0).getString("ndbno");
-                    break;
-                }
-            }
-
-           Log.d("lol", itemno);
-            progressBar.setVisibility(View.GONE);
-        }
-        catch (JSONException e){
-
-        }
-    }
-
-
-    public void loadData()
-    {
-
 
         String ingData = null ;
 
@@ -196,7 +139,7 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
                     {
                         namelist.add(test.getJSONObject(i).getString("Commodity"));
                         pricelist.add(test.getJSONObject(i).getString("Modal_x0020_Price"));
-                }
+                    }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -252,7 +195,7 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
             for ( int i = 0; i < test.length() ; i++)
             {
                 try {
-                    if (test.getJSONObject(i).getString("Market").equals("Khekda"))
+                    if (test.getJSONObject(i).getString("Market").equals("Badayoun"))
                     {
                         namelist.add(test.getJSONObject(i).getString("Commodity"));
                         pricelist.add(test.getJSONObject(i).getString("Modal_x0020_Price"));
@@ -307,7 +250,17 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
 
         mListView.setAdapter(q);
 
+        return v;
     }
+
+
+
+
+
+
+
+
+
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
