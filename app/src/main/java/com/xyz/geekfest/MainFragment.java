@@ -1,5 +1,6 @@
 package com.xyz.geekfest;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -7,7 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.xyz.geekfest.Helperclasses.ScrollTabHolderFragment;
 
@@ -85,6 +88,42 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
     @Override
     public void onScrollStateChanged(AbsListView view, int scrollState) {
         // nothing
+    }
+
+    private static class ViewHolder {
+        public TextView ingName;
+        public TextView ingPrice;
+        public TextView ingNV;
+        public ImageView img;
+    }
+
+    public View getView(int position, View convertView, ViewGroup parent) {
+        View v = convertView;
+
+        ViewHolder holder = new ViewHolder();
+
+        // First let's verify the convertView is not null
+        if (convertView == null) {
+            // This a new view we inflate the new layout
+            LayoutInflater inflater = (LayoutInflater) getActivity().getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            v = inflater.inflate(R.layout.list_item_ing, null);
+            // Now we can fill the layout with the right values
+            TextView INGname = (TextView) v.findViewById(R.id.ing_name);
+            TextView INGprice = (TextView) v.findViewById(R.id.ing_price);
+            TextView INGnv = (TextView) v.findViewById(R.id.ing_nv);
+            ImageView img = (ImageView) v.findViewById(R.id.img);
+
+            holder.ingName = INGname;
+            holder.ingPrice = INGprice;
+            holder.ingNV = INGnv;
+            holder.img = img;
+
+            v.setTag(holder);
+        }
+        else
+            holder = (ViewHolder) v.getTag();
+
+        return v;
     }
 
 }
