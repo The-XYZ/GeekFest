@@ -208,7 +208,9 @@ public class MainActivity extends ActionBarActivity implements ScrollTabHolder, 
     public class PagerAdapter extends FragmentPagerAdapter {
 
         private SparseArrayCompat<ScrollTabHolder> mScrollTabHolders;
+
         private final String[] TITLES = {"Agra", "Gonda", "Faizabad", "Etawah","Badaun","Khurja","Firozabad"};
+
         private ScrollTabHolder mListener;
 
         public PagerAdapter(FragmentManager fm) {
