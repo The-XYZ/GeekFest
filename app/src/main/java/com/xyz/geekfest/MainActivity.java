@@ -1,6 +1,7 @@
 package com.xyz.geekfest;
 
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.graphics.RectF;
 import android.os.Build;
 import android.os.Bundle;
@@ -22,6 +23,7 @@ import com.flaviofaria.kenburnsview.KenBurnsView;
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.nineoldandroids.view.ViewHelper;
 import com.xyz.geekfest.Helperclasses.AlphaForegroundColorSpan;
+import com.xyz.geekfest.Helperclasses.RecipeActivity;
 import com.xyz.geekfest.Helperclasses.ScrollTabHolder;
 import com.xyz.geekfest.Helperclasses.ScrollTabHolderFragment;
 
@@ -116,7 +118,13 @@ public class MainActivity extends ActionBarActivity implements ScrollTabHolder, 
         mAlphaForegroundColorSpan = new AlphaForegroundColorSpan(0xffffffff);
 
         floatingActionButton = (FloatingActionButton) findViewById(R.id.cook);
-        
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, RecipeActivity.class);
+                startActivity(i);
+            }
+        });
         //floatingActionButton.setBackgroundResource(R.drawable.chef);
 
     }
