@@ -1,188 +1,216 @@
 package com.xyz.geekfest;
 
-import android.content.res.Configuration;
-import android.content.res.TypedArray;
+import android.annotation.TargetApi;
+import android.graphics.RectF;
+import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.widget.DrawerLayout;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.util.SparseArrayCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.Menu;
+import android.text.SpannableString;
+import android.util.TypedValue;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.LinearLayout;
-import android.widget.ListView;
+import android.view.animation.AccelerateDecelerateInterpolator;
+import android.widget.AbsListView;
+import android.widget.ImageView;
 
-import java.util.ArrayList;
+import com.astuetz.PagerSlidingTabStrip;
+import com.flaviofaria.kenburnsview.KenBurnsView;
+import com.nineoldandroids.view.ViewHelper;
+import com.xyz.geekfest.Helperclasses.AlphaForegroundColorSpan;
+import com.xyz.geekfest.Helperclasses.ScrollTabHolder;
+import com.xyz.geekfest.Helperclasses.ScrollTabHolderFragment;
 
-public class MainActivity extends ActionBarActivity {
-	private DrawerLayout mDrawerLayout;
-    private LinearLayout mLiearLayout;
-	private ListView mDrawerList;
-	private ActionBarDrawerToggle mDrawerToggle;
-	private CharSequence mDrawerTitle;
-	private CharSequence mTitle;
-	private String[] navMenuTitles;
-	private TypedArray navMenuIcons;
-	private ArrayList<NavDrawerItem> navDrawerItems;
-	private NavDrawerListAdapter adapter;
+public class MainActivity extends ActionBarActivity implements ScrollTabHolder, ViewPager.OnPageChangeListener {
 
+    private static AccelerateDecelerateInterpolator sSmoothInterpolator = new AccelerateDecelerateInterpolator();
+
+    private KenBurnsView mHeaderPicture;
+    private View mHeader;
+
+    private PagerSlidingTabStrip mPagerSlidingTabStrip;
+    private ViewPager mViewPager;
+    private PagerAdapter mPagerAdapter;
+
+    private int mActionBarHeight;
+    private int mMinHeaderHeight;
+    private int mHeaderHeight;
+    private int mMinHeaderTranslation;
+
+
+    private RectF mRect1 = new RectF();
+    private RectF mRect2 = new RectF();
+
+    private TypedValue mTypedValue = new TypedValue();
+    private SpannableString mSpannableString;
+    private AlphaForegroundColorSpan mAlphaForegroundColorSpan;
 
     @Override
-	protected void onCreate(Bundle savedInstanceState) {
-
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        mMinHeaderHeight = getResources().getDimensionPixelSize(R.dimen.min_header_height);
+        mHeaderHeight = getResources().getDimensionPixelSize(R.dimen.header_height);
+        mMinHeaderTranslation = -mMinHeaderHeight + getActionBarHeight();
 
         setContentView(R.layout.activity_main);
 
-
-        mTitle = mDrawerTitle = getTitle();
-
-
-        navMenuTitles = getResources().getStringArray(R.array.nav_drawer_items);
-
-        navMenuIcons = getResources()
-                .obtainTypedArray(R.array.nav_drawer_icons);
-
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mLiearLayout = (LinearLayout) findViewById(R.id.drawer_view);
-        mDrawerList = (ListView) findViewById(R.id.list_slidermenu);
+        mHeaderPicture = (KenBurnsView) findViewById(R.id.header_picture);
 
 
-        navDrawerItems = new ArrayList<NavDrawerItem>();
+        mHeader = findViewById(R.id.header);
 
+        mPagerSlidingTabStrip = (PagerSlidingTabStrip) findViewById(R.id.tabs);
+        mViewPager = (ViewPager) findViewById(R.id.pager);
+        mViewPager.setOffscreenPageLimit(4);
 
-        navDrawerItems.add(new NavDrawerItem(navMenuTitles[0], navMenuIcons.getResourceId(0, -1)));
+        mPagerAdapter = new PagerAdapter(getSupportFragmentManager());
+        mPagerAdapter.setTabHolderScrollingContent(this);
 
-        navDrawerItems.add(new NavDrawerItem(navMenuTitles[1], navMenuIcons.getResourceId(1, -1)));
+        mViewPager.setAdapter(mPagerAdapter);
 
-        navDrawerItems.add(new NavDrawerItem(navMenuTitles[2], navMenuIcons.getResourceId(2, -1)));
-
-
-        navMenuIcons.recycle();
-
-
-        mDrawerList.setOnItemClickListener(new SlideMenuClickListener());
+        mPagerSlidingTabStrip.setViewPager(mViewPager);
+        mPagerSlidingTabStrip.setOnPageChangeListener(this);
+        mSpannableString = new SpannableString("Geek Fest");
+        mAlphaForegroundColorSpan = new AlphaForegroundColorSpan(0xffffffff);
 
 
 
-        adapter = new NavDrawerListAdapter(getApplicationContext(),
-                navDrawerItems);
-        mDrawerList.setAdapter(adapter);
 
+    }
 
-        Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(mToolbar);
-        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
-               mToolbar,
-                R.string.app_name,
-                R.string.app_name
-        ) {
-            public void onDrawerClosed(View view) {
-                getSupportActionBar().setTitle(mTitle);
+    @Override
+    public void onPageScrollStateChanged(int arg0) {
+        // nothing
+    }
 
-                invalidateOptionsMenu();
-            }
+    @Override
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+        // nothing
+    }
 
-            public void onDrawerOpened(View drawerView) {
-                getSupportActionBar().setTitle(mDrawerTitle);
+    @Override
+    public void onPageSelected(int position) {
+        SparseArrayCompat<ScrollTabHolder> scrollTabHolders = mPagerAdapter.getScrollTabHolders();
+        ScrollTabHolder currentHolder = scrollTabHolders.valueAt(position);
 
-                invalidateOptionsMenu();
-            }
-        };
-        mDrawerLayout.setDrawerListener(mDrawerToggle);
+        currentHolder.adjustScroll((int) (mHeader.getHeight() + ViewHelper.getTranslationY(mHeader)));
+    }
 
-        if (savedInstanceState == null) {
+    @Override
+    public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount, int pagePosition) {
+        if (mViewPager.getCurrentItem() == pagePosition) {
+            int scrollY = getScrollY(view);
+            ViewHelper.setTranslationY(mHeader, Math.max(-scrollY, mMinHeaderTranslation));
+            float ratio = clamp(ViewHelper.getTranslationY(mHeader) / mMinHeaderTranslation, 0.0f, 1.0f);
 
-            displayView(0);
         }
     }
 
+    @Override
+    public void adjustScroll(int scrollHeight) {
+        // nothing
+    }
 
-    private class SlideMenuClickListener implements
-            ListView.OnItemClickListener {
+    public int getScrollY(AbsListView view) {
+        View c = view.getChildAt(0);
+        if (c == null) {
+            return 0;
+        }
+
+        int firstVisiblePosition = view.getFirstVisiblePosition();
+        int top = c.getTop();
+
+        int headerHeight = 0;
+        if (firstVisiblePosition >= 1) {
+            headerHeight = mHeaderHeight;
+        }
+
+        return -top + firstVisiblePosition * c.getHeight() + headerHeight;
+    }
+
+    public static float clamp(float value, float max, float min) {
+        return Math.max(Math.min(value, min), max);
+    }
+
+
+
+    private RectF getOnScreenRect(RectF rect, View view) {
+        rect.set(view.getLeft(), view.getTop(), view.getRight(), view.getBottom());
+        return rect;
+    }
+
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
+    public int getActionBarHeight() {
+        if (mActionBarHeight != 0) {
+            return mActionBarHeight;
+        }
+
+        if(Build.VERSION.SDK_INT > Build.VERSION_CODES.HONEYCOMB){
+            getTheme().resolveAttribute(android.R.attr.actionBarSize, mTypedValue, true);
+        }else{
+            getTheme().resolveAttribute(R.attr.actionBarSize, mTypedValue, true);
+        }
+
+        mActionBarHeight = TypedValue.complexToDimensionPixelSize(mTypedValue.data, getResources().getDisplayMetrics());
+
+        return mActionBarHeight;
+    }
+
+
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
+    private ImageView getActionBarIconView() {
+
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB){
+            return (ImageView)findViewById(android.R.id.home);
+        }
+
+        return (ImageView)findViewById(android.support.v7.appcompat.R.id.home);
+    }
+
+    public class PagerAdapter extends FragmentPagerAdapter {
+
+        private SparseArrayCompat<ScrollTabHolder> mScrollTabHolders;
+        private final String[] TITLES = { "Page 1", "Page 2", "Page 3", "Page 4"};
+        private ScrollTabHolder mListener;
+
+        public PagerAdapter(FragmentManager fm) {
+            super(fm);
+            mScrollTabHolders = new SparseArrayCompat<ScrollTabHolder>();
+        }
+
+        public void setTabHolderScrollingContent(ScrollTabHolder listener) {
+            mListener = listener;
+        }
+
         @Override
-        public void onItemClick(AdapterView<?> parent, View view, final int position,
-                                long id) {
-            mDrawerLayout.closeDrawer(mLiearLayout);
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    displayView(position);
-                }
-            }, 300);
-        }
-    }
-
-
-
-    @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
-
-
-
-        return super.onPrepareOptionsMenu(menu);
-    }
-
-
-    private void displayView(int position) {
-
-        Fragment fragment = null;
-        switch (position) {
-            case 0:
-
-                break;
-            case 1:
-
-                break;
-            case 2:
-
-                break;
-
-
-            default:
-                break;
+        public CharSequence getPageTitle(int position) {
+            return TITLES[position];
         }
 
-        if (fragment != null) {
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            fragmentManager.beginTransaction()
-                    .replace(R.id.frame_container, fragment).commit();
-
-
-            mDrawerList.setItemChecked(position, true);
-            mDrawerList.setSelection(position);
-            setTitle(navMenuTitles[position]);
-        } else {
-
-            Log.e("MainActivity", "Error in creating fragment");
+        @Override
+        public int getCount() {
+            return TITLES.length;
         }
+
+        @Override
+        public Fragment getItem(int position) {
+            ScrollTabHolderFragment fragment = (ScrollTabHolderFragment) MainFragment.newInstance(position);
+
+            mScrollTabHolders.put(position, fragment);
+            if (mListener != null) {
+                fragment.setScrollTabHolder(mListener);
+            }
+
+            return fragment;
+        }
+
+        public SparseArrayCompat<ScrollTabHolder> getScrollTabHolders() {
+            return mScrollTabHolders;
+        }
+
     }
-
-    @Override
-    public void setTitle(CharSequence title) {
-        mTitle = title;
-        getSupportActionBar().setTitle(mTitle);
-    }
-
-
-
-    @Override
-    protected void onPostCreate(Bundle savedInstanceState) {
-        super.onPostCreate(savedInstanceState);
-
-        mDrawerToggle.syncState();
-    }
-
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-
-        mDrawerToggle.onConfigurationChanged(newConfig);
-    }
-
 }
