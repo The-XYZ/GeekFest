@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.flaviofaria.kenburnsview.KenBurnsView;
 import com.pkmmte.view.CircularImageView;
 import com.xyz.geekfest.Helperclasses.ScrollTabHolderFragment;
 
@@ -40,6 +41,7 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
     String item="butter";
     String itemno;
     String itemname;
+    KenBurnsView kenBurnsView;
 
     ArrayList<String> namelist = new ArrayList<String>();
     ArrayList<String> pricelist = new ArrayList<String>();
@@ -100,6 +102,7 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
 
         mListView = (ListView) v.findViewById(R.id.listView);
         progressBar=(SmoothProgressBar) ((MainActivity)getActivity()).findViewById(R.id.google_now);
+        kenBurnsView=(KenBurnsView) ((MainActivity)getActivity()).findViewById(R.id.header_picture);
 
         View placeHolderView = inflater.inflate(R.layout.view_header_placeholder, mListView, false);
         mListView.addHeaderView(placeHolderView);

@@ -1,5 +1,5 @@
 {
-mandi:[
+"mandi":[
 
     {
       "@id": "Table3351",
@@ -353,7 +353,7 @@ mandi:[
       "Arrival_Date": "21/03/2015",
       "Min_x0020_Price": 5980,
       "Max_x0020_Price": 6050,
-      "Modal_x0020_Price": 6020,
+      "Modal_x0020_Price": 6020
 
     },
     {
