@@ -12,7 +12,8 @@ mandi:[
       "Arrival_Date": "21/03/2015",
       "Min_x0020_Price": 6300,
       "Max_x0020_Price": 6400,
-      "Modal_x0020_Price": 6340
+      "Modal_x0020_Price": 6340,
+      "nu":"48"
     },
 
 
@@ -27,7 +28,8 @@ mandi:[
       "Arrival_Date": "21/03/2015",
       "Min_x0020_Price": 2040,
       "Max_x0020_Price": 2130,
-      "Modal_x0020_Price": 2080
+      "Modal_x0020_Price": 2080,
+      "nu":"89"
     },
     {
       "@id": "Table3355",
@@ -40,7 +42,8 @@ mandi:[
       "Arrival_Date": "21/03/2015",
       "Min_x0020_Price": 1570,
       "Max_x0020_Price": 1630,
-      "Modal_x0020_Price": 1600
+      "Modal_x0020_Price": 1600,
+      "nu":"376"
     },
 
 
@@ -55,34 +58,11 @@ mandi:[
       "Arrival_Date": "21/03/2015",
       "Min_x0020_Price": 3850,
       "Max_x0020_Price": 3950,
-      "Modal_x0020_Price": 3900
+      "Modal_x0020_Price": 3900,
+      "nu":"30"
     },
-    {
-      "@id": "Table3359",
-      "@rowOrder": 3358,
-      "State": "Uttar Pradesh",
-      "District": "Agra",
-      "Market": "Agra",
-      "Commodity": "Bottle gourd",
-      "Variety": "Bottle Gourd",
-      "Arrival_Date": "21/03/2015",
-      "Min_x0020_Price": 1470,
-      "Max_x0020_Price": 1550,
-      "Modal_x0020_Price": 1510
-    },
-    {
-      "@id": "Table3360",
-      "@rowOrder": 3359,
-      "State": "Uttar Pradesh",
-      "District": "Agra",
-      "Market": "Agra",
-      "Commodity": "Brinjal",
-      "Variety": "Round",
-      "Arrival_Date": "21/03/2015",
-      "Min_x0020_Price": 1200,
-      "Max_x0020_Price": 1280,
-      "Modal_x0020_Price": 1230
-    },
+
+
     {
       "@id": "Table3361",
       "@rowOrder": 3360,
@@ -94,7 +74,8 @@ mandi:[
       "Arrival_Date": "21/03/2015",
       "Min_x0020_Price": 800,
       "Max_x0020_Price": 900,
-      "Modal_x0020_Price": 860
+      "Modal_x0020_Price": 860,
+      "nu":"25"
     },
     {
       "@id": "Table3362",
@@ -107,7 +88,8 @@ mandi:[
       "Arrival_Date": "21/03/2015",
       "Min_x0020_Price": 1480,
       "Max_x0020_Price": 1580,
-      "Modal_x0020_Price": 1520
+      "Modal_x0020_Price": 1520,
+      "nu":"41"
     },
     {
       "@id": "Table3363",
@@ -120,7 +102,8 @@ mandi:[
       "Arrival_Date": "21/03/2015",
       "Min_x0020_Price": 920,
       "Max_x0020_Price": 1000,
-      "Modal_x0020_Price": 970
+      "Modal_x0020_Price": 970,
+      "nu":"25"
     },
     {
       "@id": "Table3364",
@@ -133,7 +116,8 @@ mandi:[
       "Arrival_Date": "21/03/2015",
       "Min_x0020_Price": 2130,
       "Max_x0020_Price": 2230,
-      "Modal_x0020_Price": 2180
+      "Modal_x0020_Price": 2180,
+      "nu":"12"
     },
     {
       "@id": "Table3365",
@@ -146,7 +130,8 @@ mandi:[
       "Arrival_Date": "21/03/2015",
       "Min_x0020_Price": 4570,
       "Max_x0020_Price": 4680,
-      "Modal_x0020_Price": 4620
+      "Modal_x0020_Price": 4620,
+      "nu":"149"
     },
     {
       "@id": "Table3366",
@@ -159,34 +144,11 @@ mandi:[
       "Arrival_Date": "21/03/2015",
       "Min_x0020_Price": 3540,
       "Max_x0020_Price": 4030,
-      "Modal_x0020_Price": 3590
+      "Modal_x0020_Price": 3590,
+      "nu":"57"
     },
-    {
-      "@id": "Table3367",
-      "@rowOrder": 3366,
-      "State": "Uttar Pradesh",
-      "District": "Agra",
-      "Market": "Agra",
-      "Commodity": "Green Chilly",
-      "Variety": "Other",
-      "Arrival_Date": "21/03/2015",
-      "Min_x0020_Price": 2550,
-      "Max_x0020_Price": 2650,
-      "Modal_x0020_Price": 2600
-    },
-    {
-      "@id": "Table3368",
-      "@rowOrder": 3367,
-      "State": "Uttar Pradesh",
-      "District": "Agra",
-      "Market": "Agra",
-      "Commodity": "Green ginger",
-      "Variety": "Green Ginger",
-      "Arrival_Date": "21/03/2015",
-      "Min_x0020_Price": 3800,
-      "Max_x0020_Price": 3900,
-      "Modal_x0020_Price": 3860
-    },
+
+
 
     {
       "@id": "Table3370",
@@ -199,7 +161,8 @@ mandi:[
       "Arrival_Date": "21/03/2015",
       "Min_x0020_Price": 1950,
       "Max_x0020_Price": 2040,
-      "Modal_x0020_Price": 1995
+      "Modal_x0020_Price": 1995,
+      "nu":"81"
     },
 
 
@@ -214,7 +177,8 @@ mandi:[
       "Arrival_Date": "21/03/2015",
       "Min_x0020_Price": 4250,
       "Max_x0020_Price": 4330,
-      "Modal_x0020_Price": 4280
+      "Modal_x0020_Price": 4280,
+      "nu":"29"
     },
 
     {
@@ -228,7 +192,8 @@ mandi:[
       "Arrival_Date": "21/03/2015",
       "Min_x0020_Price": 1270,
       "Max_x0020_Price": 1340,
-      "Modal_x0020_Price": 1310
+      "Modal_x0020_Price": 1310,
+      "nu":"371"
     },
 
     {
@@ -242,7 +207,8 @@ mandi:[
       "Arrival_Date": "21/03/2015",
       "Min_x0020_Price": 3400,
       "Max_x0020_Price": 3500,
-      "Modal_x0020_Price": 3440
+      "Modal_x0020_Price": 3440,
+      "nu":"60"
     },
     {
       "@id": "Table3378",
@@ -255,7 +221,8 @@ mandi:[
       "Arrival_Date": "21/03/2015",
       "Min_x0020_Price": 1750,
       "Max_x0020_Price": 1830,
-      "Modal_x0020_Price": 1790
+      "Modal_x0020_Price": 1790,
+      "nu":"40"
     },
     {
       "@id": "Table3379",
@@ -268,7 +235,8 @@ mandi:[
       "Arrival_Date": "21/03/2015",
       "Min_x0020_Price": 2100,
       "Max_x0020_Price": 2180,
-      "Modal_x0020_Price": 2135
+      "Modal_x0020_Price": 2135,
+      "nu":"46"
     },
     {
       "@id": "Table3380",
@@ -281,7 +249,8 @@ mandi:[
       "Arrival_Date": "21/03/2015",
       "Min_x0020_Price": 1620,
       "Max_x0020_Price": 1690,
-      "Modal_x0020_Price": 1660
+      "Modal_x0020_Price": 1660,
+      "nu":"43"
     },
 
 
@@ -296,7 +265,8 @@ mandi:[
       "Arrival_Date": "21/03/2015",
       "Min_x0020_Price": 5300,
       "Max_x0020_Price": 5400,
-      "Modal_x0020_Price": 5350
+      "Modal_x0020_Price": 5350,
+      "nu":"83"
     },
     {
       "@id": "Table3384",
@@ -309,7 +279,8 @@ mandi:[
       "Arrival_Date": "21/03/2015",
       "Min_x0020_Price": 510,
       "Max_x0020_Price": 630,
-      "Modal_x0020_Price": 590
+      "Modal_x0020_Price": 590,
+      "nu":"77"
     },
     {
       "@id": "Table3385",
@@ -322,7 +293,8 @@ mandi:[
       "Arrival_Date": "21/03/2015",
       "Min_x0020_Price": 700,
       "Max_x0020_Price": 760,
-      "Modal_x0020_Price": 730
+      "Modal_x0020_Price": 730,
+      "nu":"26"
     },
 
     {
@@ -336,21 +308,10 @@ mandi:[
       "Arrival_Date": "21/03/2015",
       "Min_x0020_Price": 1950,
       "Max_x0020_Price": 2040,
-      "Modal_x0020_Price": 1990
+      "Modal_x0020_Price": 1990,
+      "nu":"97"
     },
-    {
-      "@id": "Table3388",
-      "@rowOrder": 3387,
-      "State": "Uttar Pradesh",
-      "District": "Agra",
-      "Market": "Agra",
-      "Commodity": "Spinach",
-      "Variety": "Other",
-      "Arrival_Date": "21/03/2015",
-      "Min_x0020_Price": 720,
-      "Max_x0020_Price": 820,
-      "Modal_x0020_Price": 780
-    },
+
     {
       "@id": "Table3389",
       "@rowOrder": 3388,
@@ -362,7 +323,8 @@ mandi:[
       "Arrival_Date": "21/03/2015",
       "Min_x0020_Price": 1520,
       "Max_x0020_Price": 1700,
-      "Modal_x0020_Price": 1620
+      "Modal_x0020_Price": 1620,
+      "nu":"18"
     },
     {
       "@id": "Table3390",
@@ -375,22 +337,11 @@ mandi:[
       "Arrival_Date": "21/03/2015",
       "Min_x0020_Price": 1520,
       "Max_x0020_Price": 1600,
-      "Modal_x0020_Price": 1570
+      "Modal_x0020_Price": 1570,
+      "nu":"38"
     },
 
-    {
-      "@id": "Table3392",
-      "@rowOrder": 3391,
-      "State": "Uttar Pradesh",
-      "District": "Agra",
-      "Market": "Khairagarh",
-      "Commodity": "Mousambi",
-      "Variety": "Mousambi",
-      "Arrival_Date": "21/03/2015",
-      "Min_x0020_Price": 2320,
-      "Max_x0020_Price": 2360,
-      "Modal_x0020_Price": 2340
-    },
+
     {
       "@id": "Table3393",
       "@rowOrder": 3392,
@@ -402,7 +353,8 @@ mandi:[
       "Arrival_Date": "21/03/2015",
       "Min_x0020_Price": 5980,
       "Max_x0020_Price": 6050,
-      "Modal_x0020_Price": 6020
+      "Modal_x0020_Price": 6020,
+
     },
     {
       "@id": "Table3394",
@@ -1030,19 +982,7 @@ mandi:[
       "Max_x0020_Price": 5050,
       "Modal_x0020_Price": 5000
     },
-    {
-      "@id": "Table3482",
-      "@rowOrder": 3481,
-      "State": "Uttar Pradesh",
-      "District": "Badaun",
-      "Market": "Badayoun",
-      "Commodity": "Bajra(Pearl Millet)",
-      "Variety": "Other",
-      "Arrival_Date": "21/03/2015",
-      "Min_x0020_Price": 1050,
-      "Max_x0020_Price": 1150,
-      "Modal_x0020_Price": 1085
-    },
+
     {
       "@id": "Table3483",
       "@rowOrder": 3482,
@@ -5812,21 +5752,10 @@ mandi:[
       "Arrival_Date": "21/03/2015",
       "Min_x0020_Price": 5250,
       "Max_x0020_Price": 5350,
-      "Modal_x0020_Price": 5300
+      "Modal_x0020_Price": 5300,
+      "nu":"48"
     },
-    {
-      "@id": "Table3850",
-      "@rowOrder": 3849,
-      "State": "Uttar Pradesh",
-      "District": "Gonda",
-      "Market": "Gonda",
-      "Commodity": "Arhar (Tur)",
-      "Variety": "Arhar (Whole)",
-      "Arrival_Date": "21/03/2015",
-      "Min_x0020_Price": 4700,
-      "Max_x0020_Price": 4800,
-      "Modal_x0020_Price": 4750
-    },
+
     {
       "@id": "Table3851",
       "@rowOrder": 3850,
@@ -5838,47 +5767,12 @@ mandi:[
       "Arrival_Date": "21/03/2015",
       "Min_x0020_Price": 2000,
       "Max_x0020_Price": 2100,
-      "Modal_x0020_Price": 2050
+      "Modal_x0020_Price": 2050,
+      "nu":"89"
     },
-    {
-      "@id": "Table3852",
-      "@rowOrder": 3851,
-      "State": "Uttar Pradesh",
-      "District": "Gonda",
-      "Market": "Gonda",
-      "Commodity": "Gur(Jaggery)",
-      "Variety": "Pathari",
-      "Arrival_Date": "21/03/2015",
-      "Min_x0020_Price": 3050,
-      "Max_x0020_Price": 3200,
-      "Modal_x0020_Price": 3100
-    },
-    {
-      "@id": "Table3853",
-      "@rowOrder": 3852,
-      "State": "Uttar Pradesh",
-      "District": "Gonda",
-      "Market": "Gonda",
-      "Commodity": "Linseed",
-      "Variety": "Linseed",
-      "Arrival_Date": "21/03/2015",
-      "Min_x0020_Price": 3800,
-      "Max_x0020_Price": 3900,
-      "Modal_x0020_Price": 3825
-    },
-    {
-      "@id": "Table3854",
-      "@rowOrder": 3853,
-      "State": "Uttar Pradesh",
-      "District": "Gonda",
-      "Market": "Gonda",
-      "Commodity": "Mousambi",
-      "Variety": "Mousambi",
-      "Arrival_Date": "21/03/2015",
-      "Min_x0020_Price": 2050,
-      "Max_x0020_Price": 2200,
-      "Modal_x0020_Price": 2100
-    },
+
+
+
     {
       "@id": "Table3855",
       "@rowOrder": 3854,
@@ -5890,7 +5784,8 @@ mandi:[
       "Arrival_Date": "21/03/2015",
       "Min_x0020_Price": 3200,
       "Max_x0020_Price": 3250,
-      "Modal_x0020_Price": 3225
+      "Modal_x0020_Price": 3225,
+      "nu":"60"
     },
     {
       "@id": "Table3856",
@@ -5903,21 +5798,10 @@ mandi:[
       "Arrival_Date": "21/03/2015",
       "Min_x0020_Price": 1600,
       "Max_x0020_Price": 1800,
-      "Modal_x0020_Price": 1700
+      "Modal_x0020_Price": 1700,
+      "nu":"40"
     },
-    {
-      "@id": "Table3857",
-      "@rowOrder": 3856,
-      "State": "Uttar Pradesh",
-      "District": "Gonda",
-      "Market": "Gonda",
-      "Commodity": "Paddy(Dhan)",
-      "Variety": "Common",
-      "Arrival_Date": "21/03/2015",
-      "Min_x0020_Price": 1200,
-      "Max_x0020_Price": 1360,
-      "Modal_x0020_Price": 1315
-    },
+
     {
       "@id": "Table3858",
       "@rowOrder": 3857,
@@ -5929,7 +5813,8 @@ mandi:[
       "Arrival_Date": "21/03/2015",
       "Min_x0020_Price": 600,
       "Max_x0020_Price": 650,
-      "Modal_x0020_Price": 625
+      "Modal_x0020_Price": 625,
+      "nu":"77"
     },
     {
       "@id": "Table3859",
@@ -5942,7 +5827,8 @@ mandi:[
       "Arrival_Date": "21/03/2015",
       "Min_x0020_Price": 1950,
       "Max_x0020_Price": 2050,
-      "Modal_x0020_Price": 2010
+      "Modal_x0020_Price": 2010,
+      "nu":"97"
     },
     {
       "@id": "Table3860",
@@ -5955,7 +5841,8 @@ mandi:[
       "Arrival_Date": "21/03/2015",
       "Min_x0020_Price": 1050,
       "Max_x0020_Price": 1200,
-      "Modal_x0020_Price": 1100
+      "Modal_x0020_Price": 1100,
+      "nu":"18"
     },
     {
       "@id": "Table3861",
@@ -5968,7 +5855,8 @@ mandi:[
       "Arrival_Date": "21/03/2015",
       "Min_x0020_Price": 1450,
       "Max_x0020_Price": 1520,
-      "Modal_x0020_Price": 1500
+      "Modal_x0020_Price": 1500,
+      "nu":"38"
     },
     {
       "@id": "Table3862",
