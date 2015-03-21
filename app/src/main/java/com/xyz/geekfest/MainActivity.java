@@ -19,6 +19,7 @@ import android.widget.ImageView;
 
 import com.astuetz.PagerSlidingTabStrip;
 import com.flaviofaria.kenburnsview.KenBurnsView;
+import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.nineoldandroids.view.ViewHelper;
 import com.xyz.geekfest.Helperclasses.AlphaForegroundColorSpan;
 import com.xyz.geekfest.Helperclasses.ScrollTabHolder;
@@ -42,6 +43,7 @@ public class MainActivity extends ActionBarActivity implements ScrollTabHolder, 
     private int mMinHeaderHeight;
     private int mHeaderHeight;
     private int mMinHeaderTranslation;
+    private FloatingActionButton floatingActionButton;
 
 
     private RectF mRect1 = new RectF();
@@ -113,6 +115,9 @@ public class MainActivity extends ActionBarActivity implements ScrollTabHolder, 
         mSpannableString = new SpannableString("Geek Fest");
         mAlphaForegroundColorSpan = new AlphaForegroundColorSpan(0xffffffff);
 
+        floatingActionButton = (FloatingActionButton) findViewById(R.id.cook);
+        
+        //floatingActionButton.setBackgroundResource(R.drawable.chef);
 
     }
 
