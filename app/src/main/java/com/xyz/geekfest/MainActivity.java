@@ -24,6 +24,9 @@ import com.xyz.geekfest.Helperclasses.AlphaForegroundColorSpan;
 import com.xyz.geekfest.Helperclasses.ScrollTabHolder;
 import com.xyz.geekfest.Helperclasses.ScrollTabHolderFragment;
 
+import java.io.IOException;
+import java.io.InputStream;
+
 public class MainActivity extends ActionBarActivity implements ScrollTabHolder, ViewPager.OnPageChangeListener {
 
     private static AccelerateDecelerateInterpolator sSmoothInterpolator = new AccelerateDecelerateInterpolator();
@@ -47,6 +50,37 @@ public class MainActivity extends ActionBarActivity implements ScrollTabHolder, 
     private TypedValue mTypedValue = new TypedValue();
     private SpannableString mSpannableString;
     private AlphaForegroundColorSpan mAlphaForegroundColorSpan;
+
+    String[] Titles;
+
+    private String URL_MANDIS = "https://data.gov.in/api/datastore/resource.json?resource_id=9ef84268-d588-465a-a308-a864a43d0070&api-key=7e3b37ca86aaa795df047decb82d14a5";
+
+
+    public String loadJSONFromAsset() {
+
+        String json = null;
+        try {
+
+            InputStream is = getAssets().open("mandi.json");
+
+            int size = is.available();
+
+            byte[] buffer = new byte[size];
+
+            is.read(buffer);
+
+            is.close();
+
+            json = new String(buffer, "UTF-8");
+
+
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+        return json;
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,8 +110,6 @@ public class MainActivity extends ActionBarActivity implements ScrollTabHolder, 
         mPagerSlidingTabStrip.setOnPageChangeListener(this);
         mSpannableString = new SpannableString("Geek Fest");
         mAlphaForegroundColorSpan = new AlphaForegroundColorSpan(0xffffffff);
-
-
 
 
     }
@@ -174,7 +206,7 @@ public class MainActivity extends ActionBarActivity implements ScrollTabHolder, 
     public class PagerAdapter extends FragmentPagerAdapter {
 
         private SparseArrayCompat<ScrollTabHolder> mScrollTabHolders;
-        private final String[] TITLES = { "Page 1", "Page 2", "Page 3", "Page 4"};
+        private final String[] TITLES = { "Agra", "Aligarh", "Allahabad", "Ambedkar Nagar","Auraiya","Azamgarh","Badaun","Baghpat","Bahraich","Ballia","Balrampur","Barabanki","Banda"};
         private ScrollTabHolder mListener;
 
         public PagerAdapter(FragmentManager fm) {
