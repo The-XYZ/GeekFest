@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -85,11 +84,7 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
         super.onCreate(savedInstanceState);
         mPosition = getArguments().getInt(ARG_POSITION);
 
-        mListItems = new ArrayList<String>();
 
-        for (int i = 1; i <= 100; i++) {
-            mListItems.add(i + ". item - currnet page: " + (mPosition + 1));
-        }
     }
 
     @Override
@@ -301,9 +296,6 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
             }
         }
 
-
-
-
         for(int i =0 ; i <namelist.size() ; i++)
         {
             each = new EachRow3();
@@ -324,7 +316,7 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
         super.onActivityCreated(savedInstanceState);
 
         mListView.setOnScrollListener(this);
-        mListView.setAdapter(new ArrayAdapter<>(getActivity(), R.layout.list_item, android.R.id.text1, mListItems));
+       //  mListView.setAdapter(new ArrayAdapter<>(getActivity(), R.layout.list_item, android.R.id.text1, mListItems));
     }
 
     @Override
@@ -347,8 +339,6 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
     public void onScrollStateChanged(AbsListView view, int scrollState) {
         // nothing
     }
-
-
 
 
     class MyAdapter3 extends ArrayAdapter<EachRow3> {
