@@ -94,6 +94,8 @@ public class MainActivity extends ActionBarActivity implements ScrollTabHolder, 
 
         mHeaderPicture = (KenBurnsView) findViewById(R.id.header_picture);
 
+        mHeaderPicture.setImageResource(R.drawable.rsz_sabzi_bg);
+
 
         mHeader = findViewById(R.id.header);
 
