@@ -8,6 +8,8 @@
     <color name="colorPrimary">#1976D2</color>
     <color name="colorPrimaryDark">#1565c0</color>
     <color name="colorAccent">#009688</color>
+    <color name="pink">#e91e63</color>
+    <color name="pink_pressed">#ec407a</color>
 
     <integer-array name="gplus_colors">
         <item>@color/gplus_color_1</item>
