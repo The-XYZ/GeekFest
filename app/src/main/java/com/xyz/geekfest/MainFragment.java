@@ -1,6 +1,7 @@
 package com.xyz.geekfest;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -15,6 +16,12 @@ import android.widget.TextView;
 import com.pkmmte.view.CircularImageView;
 import com.xyz.geekfest.Helperclasses.ScrollTabHolderFragment;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 /**
@@ -28,7 +35,15 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
     private ListView mListView;
     private ArrayList<String> mListItems;
 
+    ArrayList<String> namelist = new ArrayList<String>();
+    ArrayList<String> pricelist = new ArrayList<String>();
+    ArrayList<EachRow3> list3 = new ArrayList<MainFragment.EachRow3>();
+
+
     private int mPosition;
+    MyAdapter3 q;
+    EachRow3 each;
+
 
     public static Fragment newInstance(int position) {
         MainFragment f = new MainFragment();
@@ -36,6 +51,33 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
         b.putInt(ARG_POSITION, position);
         f.setArguments(b);
         return f;
+    }
+
+
+    public String loadJSONFromAsset() {
+
+        String json = null;
+        try {
+
+            InputStream is = getActivity().getAssets().open("mandi.json");
+
+            int size = is.available();
+
+            byte[] buffer = new byte[size];
+
+            is.read(buffer);
+
+            is.close();
+
+            json = new String(buffer, "UTF-8");
+
+
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+        return json;
+
     }
 
     @Override
@@ -59,7 +101,222 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
         View placeHolderView = inflater.inflate(R.layout.view_header_placeholder, mListView, false);
         mListView.addHeaderView(placeHolderView);
 
+        q = new MyAdapter3(getActivity(), 0, list3);
+        q.setNotifyOnChange(true);
+
+
+        loadData();
+
         return v;
+    }
+
+
+    public void loadData()
+    {
+
+
+        String ingData = null ;
+
+        ingData =loadJSONFromAsset();
+
+        JSONArray test = new JSONArray() ;
+        JSONObject myObject =null;
+
+
+        try {
+            myObject = new JSONObject(ingData);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            test = myObject.getJSONArray("mandi");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        if(mPosition==0)
+        {
+            for ( int i = 0; i < test.length() ; i++)
+            {
+                try {
+                    if (test.getJSONObject(i).getString("Market").equals("Agra"))
+                    {
+                        namelist.add(test.getJSONObject(i).getString("Commodity"));
+                        pricelist.add(test.getJSONObject(i).getString("Modal_x0020_Price"));
+                }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        else if(mPosition==1)
+        {
+            for ( int i = 0; i < test.length() ; i++)
+            {
+                try {
+                    if (test.getJSONObject(i).getString("Market").equals("Agra"))
+                    {
+                        namelist.add(test.getJSONObject(i).getString("Commodity"));
+                        pricelist.add(test.getJSONObject(i).getString("Modal_x0020_Price"));
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        else if(mPosition==2)
+        {
+            for ( int i = 0; i < test.length() ; i++)
+            {
+                try {
+                    if (test.getJSONObject(i).getString("Market").equals("Agra"))
+                    {
+                        namelist.add(test.getJSONObject(i).getString("Commodity"));
+                        pricelist.add(test.getJSONObject(i).getString("Modal_x0020_Price"));
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        else if(mPosition==3)
+        {
+            for ( int i = 0; i < test.length() ; i++)
+            {
+                try {
+                    if (test.getJSONObject(i).getString("Market").equals("Agra"))
+                    {
+                        namelist.add(test.getJSONObject(i).getString("Commodity"));
+                        pricelist.add(test.getJSONObject(i).getString("Modal_x0020_Price"));
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        else if(mPosition==4)
+        {
+            for ( int i = 0; i < test.length() ; i++)
+            {
+                try {
+                    if (test.getJSONObject(i).getString("Market").equals("Agra"))
+                    {
+                        namelist.add(test.getJSONObject(i).getString("Commodity"));
+                        pricelist.add(test.getJSONObject(i).getString("Modal_x0020_Price"));
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        else if(mPosition==5)
+        {
+            for ( int i = 0; i < test.length() ; i++)
+            {
+                try {
+                    if (test.getJSONObject(i).getString("Market").equals("Agra"))
+                    {
+                        namelist.add(test.getJSONObject(i).getString("Commodity"));
+                        pricelist.add(test.getJSONObject(i).getString("Modal_x0020_Price"));
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        else if(mPosition==6)
+        {
+            for ( int i = 0; i < test.length() ; i++)
+            {
+                try {
+                    if (test.getJSONObject(i).getString("Market").equals("Agra"))
+                    {
+                        namelist.add(test.getJSONObject(i).getString("Commodity"));
+                        pricelist.add(test.getJSONObject(i).getString("Modal_x0020_Price"));
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        else if(mPosition==7)
+        {
+            for ( int i = 0; i < test.length() ; i++)
+            {
+                try {
+                    if (test.getJSONObject(i).getString("Market").equals("Agra"))
+                    {
+                        namelist.add(test.getJSONObject(i).getString("Commodity"));
+                        pricelist.add(test.getJSONObject(i).getString("Modal_x0020_Price"));
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        else if(mPosition==8)
+        {
+            for ( int i = 0; i < test.length() ; i++)
+            {
+                try {
+                    if (test.getJSONObject(i).getString("Market").equals("Agra"))
+                    {
+                        namelist.add(test.getJSONObject(i).getString("Commodity"));
+                        pricelist.add(test.getJSONObject(i).getString("Modal_x0020_Price"));
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        else if(mPosition==9)
+        {
+            for ( int i = 0; i < test.length() ; i++)
+            {
+                try {
+                    if (test.getJSONObject(i).getString("Market").equals("Agra"))
+                    {
+                        namelist.add(test.getJSONObject(i).getString("Commodity"));
+                        pricelist.add(test.getJSONObject(i).getString("Modal_x0020_Price"));
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        else if(mPosition==10)
+        {
+            for ( int i = 0; i < test.length() ; i++)
+            {
+                try {
+                    if (test.getJSONObject(i).getString("Market").equals("Agra"))
+                    {
+                        namelist.add(test.getJSONObject(i).getString("Commodity"));
+                        pricelist.add(test.getJSONObject(i).getString("Modal_x0020_Price"));
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+
+
+
+        for(int i =0 ; i <namelist.size() ; i++)
+        {
+            each = new EachRow3();
+            each.cname = namelist.get(i) ;
+            each.cprice = pricelist.get(i) ;
+            // each.cpic  = ;
+            // each.cvalue = ;
+
+            list3.add(each);
+        }
+
+        mListView.setAdapter(q);
+
     }
 
     @Override
@@ -91,40 +348,85 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
         // nothing
     }
 
-    private static class ViewHolder {
-        public TextView ingName;
-        public TextView ingPrice;
-        public TextView ingNV;
-        public CircularImageView img;
-    }
 
-    public View getView(int position, View convertView, ViewGroup parent) {
-        View v = convertView;
 
-        ViewHolder holder = new ViewHolder();
 
-        // First let's verify the convertView is not null
-        if (convertView == null) {
-            // This a new view we inflate the new layout
-            LayoutInflater inflater = (LayoutInflater) getActivity().getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            v = inflater.inflate(R.layout.list_item_ing, null);
-            // Now we can fill the layout with the right values
-            TextView INGname = (TextView) v.findViewById(R.id.ing_name);
-            TextView INGprice = (TextView) v.findViewById(R.id.ing_price);
-            TextView INGnv = (TextView) v.findViewById(R.id.ing_nv);
-            ImageView img = (CircularImageView) v.findViewById(R.id.img);
+    class MyAdapter3 extends ArrayAdapter<EachRow3> {
+        LayoutInflater inflat;
+        ViewHolder holder;
 
-            holder.ingName = INGname;
-            holder.ingPrice = INGprice;
-            holder.ingNV = INGnv;
-            holder.img = (CircularImageView) img;
-
-            v.setTag(holder);
+        public MyAdapter3(Context context, int textViewResourceId,
+                          ArrayList<EachRow3> objects) {
+            super(context, textViewResourceId, objects);
+            // TODO Auto-generated constructor stub
+            inflat = LayoutInflater.from(context);
         }
-        else
-            holder = (ViewHolder) v.getTag();
 
-        return v;
+        @Override
+        public View getView(final int position, View convertView, ViewGroup parent) {
+            // TODO Auto-generated method stub
+            final int pos=position;
+
+            if (convertView == null) {
+                convertView = inflat.inflate(R.layout.list_item_ing, null);
+                holder = new ViewHolder();
+
+
+                holder.ingName = (TextView) convertView.findViewById(R.id.ing_name);
+                holder.ingPrice = (TextView) convertView.findViewById(R.id.ing_price);
+                holder.ingNV = (TextView) convertView.findViewById(R.id.ing_nv);
+                holder.img  = (CircularImageView) convertView.findViewById(R.id.img);
+
+                convertView.setTag(holder);
+            }
+            holder = (ViewHolder) convertView.getTag();
+            EachRow3 row = getItem(position);
+//            Log.d("size", row.text);
+
+            holder.ingName.setText(row.cname);
+            holder.ingPrice.setText(row.cprice);
+
+            // image
+            // value
+
+            return convertView;
+
+        }
+
+
+
+
+        private class ViewHolder {
+
+            public TextView ingName;
+            public TextView ingPrice;
+            public TextView ingNV;
+            public CircularImageView img;
+
+        }
+
+
+        @Override
+        public EachRow3 getItem(int position) {
+            // TODO Auto-generated method stub
+            return list3.get(position);
+        }
+
     }
+
+    private class EachRow3
+    {
+        String cname;
+        String cprice ;
+        Drawable cimage ;
+        String cvalue;
+
+    }
+
+
+
+
+
+
 
 }
