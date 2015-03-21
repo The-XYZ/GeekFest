@@ -26,9 +26,10 @@ public class AppController extends Application {
     public void onCreate() {
         super.onCreate();
 
-        Parse.initialize(this, "bq70PZtCZbV6iMN0au1RkJ1O0M5itrx0cYLKpBlQ", "kKiN7pqRaRakESowecbZfqiCXYIFEAzsdo5fYRli");
 
         mInstance = this;
+        Parse.initialize(this, "bq70PZtCZbV6iMN0au1RkJ1O0M5itrx0cYLKpBlQ", "kKiN7pqRaRakESowecbZfqiCXYIFEAzsdo5fYRli");
+
     }
 
     public static synchronized AppController getInstance() {
