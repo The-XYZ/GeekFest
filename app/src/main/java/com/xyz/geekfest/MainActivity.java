@@ -214,7 +214,7 @@ public class MainActivity extends ActionBarActivity implements ScrollTabHolder, 
 
         private SparseArrayCompat<ScrollTabHolder> mScrollTabHolders;
 
-        private final String[] TITLES = {"Agra", "Gonda", "Faizabad", "Etawah","Badaun","Khurja","Firozabad"};
+        private final String[] TITLES = {"Agra", "Gonda", "Faizabad","Badayoun","Khurja","Firozabad"};
 
         private ScrollTabHolder mListener;
 
