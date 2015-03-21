@@ -1,6 +1,7 @@
 package com.xyz.geekfest;
 
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.graphics.RectF;
 import android.os.Build;
 import android.os.Bundle;
@@ -12,6 +13,9 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.text.SpannableString;
 import android.util.TypedValue;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.AbsListView;
@@ -22,6 +26,7 @@ import com.flaviofaria.kenburnsview.KenBurnsView;
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.nineoldandroids.view.ViewHelper;
 import com.xyz.geekfest.Helperclasses.AlphaForegroundColorSpan;
+import com.xyz.geekfest.Helperclasses.RecipeActivity;
 import com.xyz.geekfest.Helperclasses.ScrollTabHolder;
 import com.xyz.geekfest.Helperclasses.ScrollTabHolderFragment;
 
@@ -249,4 +254,27 @@ public class MainActivity extends ActionBarActivity implements ScrollTabHolder, 
         }
 
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+        return super.onCreateOptionsMenu(menu);
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle presses on the action bar items
+        switch (item.getItemId()) {
+            case R.id.save:
+                startActivity(new Intent(MainActivity.this, RecipeActivity.class));
+                //openSearch();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
 }
