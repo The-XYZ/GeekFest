@@ -207,7 +207,7 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
             for ( int i = 0; i < test.length() ; i++)
             {
                 try {
-                    if (test.getJSONObject(i).getString("Market").equals("Agra"))
+                    if (test.getJSONObject(i).getString("Market").equals("Gonda"))
                     {
                         namelist.add(test.getJSONObject(i).getString("Commodity"));
                         pricelist.add(test.getJSONObject(i).getString("Modal_x0020_Price"));
@@ -222,7 +222,7 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
             for ( int i = 0; i < test.length() ; i++)
             {
                 try {
-                    if (test.getJSONObject(i).getString("Market").equals("Agra"))
+                    if (test.getJSONObject(i).getString("Market").equals("Faizabad"))
                     {
                         namelist.add(test.getJSONObject(i).getString("Commodity"));
                         pricelist.add(test.getJSONObject(i).getString("Modal_x0020_Price"));
@@ -237,7 +237,7 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
             for ( int i = 0; i < test.length() ; i++)
             {
                 try {
-                    if (test.getJSONObject(i).getString("Market").equals("Agra"))
+                    if (test.getJSONObject(i).getString("Market").equals("Etawah"))
                     {
                         namelist.add(test.getJSONObject(i).getString("Commodity"));
                         pricelist.add(test.getJSONObject(i).getString("Modal_x0020_Price"));
@@ -252,7 +252,7 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
             for ( int i = 0; i < test.length() ; i++)
             {
                 try {
-                    if (test.getJSONObject(i).getString("Market").equals("Agra"))
+                    if (test.getJSONObject(i).getString("Market").equals("Khekda"))
                     {
                         namelist.add(test.getJSONObject(i).getString("Commodity"));
                         pricelist.add(test.getJSONObject(i).getString("Modal_x0020_Price"));
@@ -267,7 +267,7 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
             for ( int i = 0; i < test.length() ; i++)
             {
                 try {
-                    if (test.getJSONObject(i).getString("Market").equals("Agra"))
+                    if (test.getJSONObject(i).getString("Market").equals("Khurja"))
                     {
                         namelist.add(test.getJSONObject(i).getString("Commodity"));
                         pricelist.add(test.getJSONObject(i).getString("Modal_x0020_Price"));
@@ -282,7 +282,7 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
             for ( int i = 0; i < test.length() ; i++)
             {
                 try {
-                    if (test.getJSONObject(i).getString("Market").equals("Agra"))
+                    if (test.getJSONObject(i).getString("Market").equals("Firozabad"))
                     {
                         namelist.add(test.getJSONObject(i).getString("Commodity"));
                         pricelist.add(test.getJSONObject(i).getString("Modal_x0020_Price"));
@@ -292,66 +292,7 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
                 }
             }
         }
-        else if(mPosition==7)
-        {
-            for ( int i = 0; i < test.length() ; i++)
-            {
-                try {
-                    if (test.getJSONObject(i).getString("Market").equals("Agra"))
-                    {
-                        namelist.add(test.getJSONObject(i).getString("Commodity"));
-                        pricelist.add(test.getJSONObject(i).getString("Modal_x0020_Price"));
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-        else if(mPosition==8)
-        {
-            for ( int i = 0; i < test.length() ; i++)
-            {
-                try {
-                    if (test.getJSONObject(i).getString("Market").equals("Agra"))
-                    {
-                        namelist.add(test.getJSONObject(i).getString("Commodity"));
-                        pricelist.add(test.getJSONObject(i).getString("Modal_x0020_Price"));
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-        else if(mPosition==9)
-        {
-            for ( int i = 0; i < test.length() ; i++)
-            {
-                try {
-                    if (test.getJSONObject(i).getString("Market").equals("Agra"))
-                    {
-                        namelist.add(test.getJSONObject(i).getString("Commodity"));
-                        pricelist.add(test.getJSONObject(i).getString("Modal_x0020_Price"));
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-        else if(mPosition==10)
-        {
-            for ( int i = 0; i < test.length() ; i++)
-            {
-                try {
-                    if (test.getJSONObject(i).getString("Market").equals("Agra"))
-                    {
-                        namelist.add(test.getJSONObject(i).getString("Commodity"));
-                        pricelist.add(test.getJSONObject(i).getString("Modal_x0020_Price"));
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
+
 
         for(int i =0 ; i <namelist.size() ; i++)
         {
