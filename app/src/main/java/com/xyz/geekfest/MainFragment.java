@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.pkmmte.view.CircularImageView;
 import com.xyz.geekfest.Helperclasses.ScrollTabHolderFragment;
 
 import java.util.ArrayList;
@@ -94,7 +95,7 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
         public TextView ingName;
         public TextView ingPrice;
         public TextView ingNV;
-        public ImageView img;
+        public CircularImageView img;
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -111,12 +112,12 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
             TextView INGname = (TextView) v.findViewById(R.id.ing_name);
             TextView INGprice = (TextView) v.findViewById(R.id.ing_price);
             TextView INGnv = (TextView) v.findViewById(R.id.ing_nv);
-            ImageView img = (ImageView) v.findViewById(R.id.img);
+            ImageView img = (CircularImageView) v.findViewById(R.id.img);
 
             holder.ingName = INGname;
             holder.ingPrice = INGprice;
             holder.ingNV = INGnv;
-            holder.img = img;
+            holder.img = (CircularImageView) img;
 
             v.setTag(holder);
         }
