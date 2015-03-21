@@ -1,7 +1,6 @@
 package com.xyz.geekfest;
 
 import android.annotation.TargetApi;
-import android.content.Intent;
 import android.graphics.RectF;
 import android.os.Build;
 import android.os.Bundle;
@@ -23,7 +22,6 @@ import com.flaviofaria.kenburnsview.KenBurnsView;
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.nineoldandroids.view.ViewHelper;
 import com.xyz.geekfest.Helperclasses.AlphaForegroundColorSpan;
-import com.xyz.geekfest.Helperclasses.RecipeActivity;
 import com.xyz.geekfest.Helperclasses.ScrollTabHolder;
 import com.xyz.geekfest.Helperclasses.ScrollTabHolderFragment;
 
@@ -55,9 +53,6 @@ public class MainActivity extends ActionBarActivity implements ScrollTabHolder, 
     private SpannableString mSpannableString;
     private AlphaForegroundColorSpan mAlphaForegroundColorSpan;
 
-    String[] Titles;
-
-    private String URL_MANDIS = "https://data.gov.in/api/datastore/resource.json?resource_id=9ef84268-d588-465a-a308-a864a43d0070&api-key=7e3b37ca86aaa795df047decb82d14a5";
 
 
     public String loadJSONFromAsset() {
@@ -117,15 +112,7 @@ public class MainActivity extends ActionBarActivity implements ScrollTabHolder, 
         mSpannableString = new SpannableString("Geek Fest");
         mAlphaForegroundColorSpan = new AlphaForegroundColorSpan(0xffffffff);
 
-        floatingActionButton = (FloatingActionButton) findViewById(R.id.cook);
-        floatingActionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, RecipeActivity.class);
-                startActivity(i);
-            }
-        });
-        //floatingActionButton.setBackgroundResource(R.drawable.chef);
+
 
     }
 
@@ -221,7 +208,7 @@ public class MainActivity extends ActionBarActivity implements ScrollTabHolder, 
     public class PagerAdapter extends FragmentPagerAdapter {
 
         private SparseArrayCompat<ScrollTabHolder> mScrollTabHolders;
-        private final String[] TITLES = { "Agra", "Aligarh", "Allahabad", "Ambedkar Nagar","Auraiya","Azamgarh","Badaun","Baghpat","Bahraich","Ballia","Balrampur","Barabanki","Banda"};
+        private final String[] TITLES = {"Agra", "Gonda", "Faizabad", "Etawah","Badaun","Khurja","Firozabad"};
         private ScrollTabHolder mListener;
 
         public PagerAdapter(FragmentManager fm) {
