@@ -58,8 +58,8 @@
             android:id="@+id/youtube"
             android:layout_width="0dp"
             android:layout_height="64dp"
-            android:layout_gravity="bottom|right"
-            android:gravity="bottom|right"
+            android:layout_gravity="center"
+            android:gravity="center"
             android:layout_weight="1"
             android:textAlignment="center"
             android:background="@drawable/bbuton_primary_rounded"/>
@@ -68,8 +68,8 @@
             android:id="@+id/recipe"
             android:layout_width="0dp"
             android:layout_height="64dp"
-            android:layout_gravity="bottom|left"
-            android:gravity="bottom|left"
+            android:layout_gravity="center"
+            android:gravity="center"
             android:layout_weight="1"
             android:textAlignment="center"
             android:background="@drawable/bbuton_primary_rounded"/>
