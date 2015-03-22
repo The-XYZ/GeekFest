@@ -21,6 +21,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.toolbox.NetworkImageView;
 import com.getbase.floatingactionbutton.FloatingActionButton;
@@ -79,6 +80,9 @@ public class Budget extends ActionBarActivity {
         q.setNotifyOnChange(true);
 
 
+        createDream = (FloatingActionButton)findViewById(R.id.fab);
+
+
 //        mAdapter = new CoverFlowAdapter(getApplicationContext());
 //        mCoverFlow = (FeatureCoverFlow) findViewById(R.id.coverflow);
 ////        createDream =(FloatingActionButton)findViewById(R.id.fab);
@@ -124,6 +128,7 @@ public class Budget extends ActionBarActivity {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
 
+
                    JSONObject json = null;
                    try {
                        json = new JSONObject(loadJSONFromAsset());
@@ -138,7 +143,7 @@ public class Budget extends ActionBarActivity {
                        e.printStackTrace();
                    }
 
-                if(position==0) {
+                if(adapter.getItem(position).toString().equals("Dal Makhani chawal")) {
                     try {
                         cost = test.getJSONObject(0).getString("cost");
                     } catch (JSONException e) {
@@ -165,7 +170,7 @@ public class Budget extends ActionBarActivity {
                 }
 
 
-                if(position==1) {
+                if(adapter.getItem(position).toString().equals("Dum Aloo + roti")) {
                     try {
                         cost = test.getJSONObject(1).getString("cost");
                     } catch (JSONException e) {
@@ -190,7 +195,7 @@ public class Budget extends ActionBarActivity {
                     }
                 }
 
-                if(position==2) {
+                if(adapter.getItem(position).toString().equals("Aloo Capcicum + roti")) {
                     try {
                         cost = test.getJSONObject(2).getString("cost");
                     } catch (JSONException e) {
@@ -215,7 +220,7 @@ public class Budget extends ActionBarActivity {
                     }
                 }
 
-                if(position==3) {
+                if(adapter.getItem(position).toString().equals("Palak Paneer + roti")) {
                     try {
                         cost = test.getJSONObject(3).getString("cost");
                     } catch (JSONException e) {
@@ -283,6 +288,13 @@ public class Budget extends ActionBarActivity {
 //            }
 //        });
 
+
+        createDream.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "Estimated call is :"+ cost, Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
 
@@ -421,7 +433,7 @@ public class Budget extends ActionBarActivity {
                 holder.textViewname = (TextView) convertView.findViewById(R.id.textview_name);
                 holder.textViewprice = (TextView) convertView.findViewById(R.id.textview_price);
 
-                holder.imageView  = (NetworkImageView) convertView.findViewById(R.id.image_name);
+                holder.imageView  = (ImageView) convertView.findViewById(R.id.image_name);
 
                 convertView.setTag(holder);
             }
@@ -429,9 +441,8 @@ public class Budget extends ActionBarActivity {
             EachRow3 row = getItem(position);
 //            Log.d("size", row.text);
 
-            Bitmap b= row.pic;
 
-            holder.imageView.setImageBitmap(b);
+            holder.imageView.setImageBitmap(row.pic);
 
             holder.textViewname.setText(row.name);
             holder.textViewprice.setText(row.price);
@@ -454,7 +465,7 @@ public class Budget extends ActionBarActivity {
             public TextView textViewname;
             public TextView textViewprice;
 
-            public NetworkImageView imageView;
+            public ImageView imageView;
 
 
         }
@@ -475,7 +486,6 @@ public class Budget extends ActionBarActivity {
     {
         public String name;
         public String price;
-
         public Bitmap pic;
     }
 
