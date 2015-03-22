@@ -524,7 +524,7 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
 //            Log.d("size", row.text);
 
             holder.ingName.setText(row.cname);
-            holder.ingPrice.setText(row.cprice);
+            holder.ingPrice.setText("₹"+row.cprice);
             holder.ingNV.setText(row.cvalue);
 
             // image
