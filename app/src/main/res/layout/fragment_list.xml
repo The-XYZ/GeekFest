@@ -28,6 +28,7 @@
             android:layout_marginBottom="20dp"
             android:layout_marginRight="20dp"
             fab:fab_colorNormal="@color/pink"
-            fab:fab_colorPressed="@color/pink_pressed"/>
+            fab:fab_colorPressed="@color/pink_pressed"
+            fab:fab_icon="@drawable/chef_white"/>
 
     </FrameLayout>

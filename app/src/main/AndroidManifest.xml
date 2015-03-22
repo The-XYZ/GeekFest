@@ -40,6 +40,7 @@
         <activity
             android:name=".RecipeActivity"
             android:label="@string/title_activity_recipe"
+            android:theme="@style/AppThemeNoToolbar"
             android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
