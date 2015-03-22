@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.xyz.geekfest"
-        minSdkVersion 14
+        minSdkVersion 15
         targetSdkVersion 21
         versionCode 1
         versionName "1.0"
@@ -34,4 +34,5 @@ dependencies {
     compile files('lib/Parse-1.8.2.jar')
     compile 'com.parse.bolts:bolts-android:1.1.4'
     compile 'com.github.PhilJay:MPAndroidChart:v2.0.8'
+    compile 'com.github.moondroid.coverflow:library:1.0'
 }
