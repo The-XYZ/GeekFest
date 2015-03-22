@@ -31,7 +31,8 @@
             android:textColor="@android:color/white"
             android:background="@android:color/transparent"
             app:pstsIndicatorColor="@android:color/white"
-            app:pstsIndicatorHeight="3dp"/>
+            app:pstsDividerColor="@android:color/transparent"
+            app:pstsIndicatorHeight="7dp"/>
         <fr.castorflex.android.smoothprogressbar.SmoothProgressBar
             android:id="@+id/google_now"
             android:layout_gravity="top"

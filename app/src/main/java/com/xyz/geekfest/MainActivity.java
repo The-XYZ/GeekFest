@@ -58,6 +58,8 @@ public class MainActivity extends ActionBarActivity implements ScrollTabHolder, 
     private SpannableString mSpannableString;
     private AlphaForegroundColorSpan mAlphaForegroundColorSpan;
 
+    int[] drawable={R.drawable.one,R.drawable.two,R.drawable.three,R.drawable.four,R.drawable.five};
+
 
 
     public String loadJSONFromAsset() {
@@ -136,7 +138,9 @@ public class MainActivity extends ActionBarActivity implements ScrollTabHolder, 
         SparseArrayCompat<ScrollTabHolder> scrollTabHolders = mPagerAdapter.getScrollTabHolders();
         ScrollTabHolder currentHolder = scrollTabHolders.valueAt(position);
 
+
         currentHolder.adjustScroll((int) (mHeader.getHeight() + ViewHelper.getTranslationY(mHeader)));
+
     }
 
     @Override

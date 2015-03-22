@@ -1,13 +1,17 @@
 package com.xyz.geekfest;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -42,6 +46,7 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
     String itemno;
     String itemname;
     KenBurnsView kenBurnsView;
+    android.os.Handler handler;
 
     ArrayList<String> namelist = new ArrayList<String>();
     ArrayList<String> pricelist = new ArrayList<String>();
@@ -136,8 +141,8 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
             {
                 try {
                     if (test.getJSONObject(i).getString("Market").equals("Agra"))
-                    {
-                        namelist.add(test.getJSONObject(i).getString("Commodity"));
+                    {item=test.getJSONObject(i).getString("Commodity");
+                        namelist.add(item);
                         pricelist.add(test.getJSONObject(i).getString("Modal_x0020_Price"));
                     }
                 } catch (JSONException e) {
@@ -151,8 +156,8 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
             {
                 try {
                     if (test.getJSONObject(i).getString("Market").equals("Gonda"))
-                    {
-                        namelist.add(test.getJSONObject(i).getString("Commodity"));
+                    {item=test.getJSONObject(i).getString("Commodity");
+                        namelist.add(item);
                         pricelist.add(test.getJSONObject(i).getString("Modal_x0020_Price"));
                     }
                 } catch (JSONException e) {
@@ -166,8 +171,8 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
             {
                 try {
                     if (test.getJSONObject(i).getString("Market").equals("Faizabad"))
-                    {
-                        namelist.add(test.getJSONObject(i).getString("Commodity"));
+                    {item=test.getJSONObject(i).getString("Commodity");
+                        namelist.add(item);
                         pricelist.add(test.getJSONObject(i).getString("Modal_x0020_Price"));
                     }
                 } catch (JSONException e) {
@@ -181,8 +186,8 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
             {
                 try {
                     if (test.getJSONObject(i).getString("Market").equals("Etawah"))
-                    {
-                        namelist.add(test.getJSONObject(i).getString("Commodity"));
+                    {item=test.getJSONObject(i).getString("Commodity");
+                        namelist.add(item);
                         pricelist.add(test.getJSONObject(i).getString("Modal_x0020_Price"));
                     }
                 } catch (JSONException e) {
@@ -196,9 +201,10 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
             {
                 try {
                     if (test.getJSONObject(i).getString("Market").equals("Badayoun"))
-                    {
-                        namelist.add(test.getJSONObject(i).getString("Commodity"));
+                    {   item=test.getJSONObject(i).getString("Commodity");
+                        namelist.add(item);
                         pricelist.add(test.getJSONObject(i).getString("Modal_x0020_Price"));
+
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -211,8 +217,8 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
             {
                 try {
                     if (test.getJSONObject(i).getString("Market").equals("Khurja"))
-                    {
-                        namelist.add(test.getJSONObject(i).getString("Commodity"));
+                    {item=test.getJSONObject(i).getString("Commodity");
+                        namelist.add(item);
                         pricelist.add(test.getJSONObject(i).getString("Modal_x0020_Price"));
                     }
                 } catch (JSONException e) {
@@ -226,8 +232,8 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
             {
                 try {
                     if (test.getJSONObject(i).getString("Market").equals("Firozabad"))
-                    {
-                        namelist.add(test.getJSONObject(i).getString("Commodity"));
+                    {item=test.getJSONObject(i).getString("Commodity");
+                        namelist.add(item);
                         pricelist.add(test.getJSONObject(i).getString("Modal_x0020_Price"));
                     }
                 } catch (JSONException e) {
@@ -249,6 +255,25 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
         }
 
         mListView.setAdapter(q);
+
+        handler=new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+                progressBar.setVisibility(View.GONE);
+            }
+        }, 2000);
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent=new Intent(getActivity(),DetailFood.class);
+                intent.putExtra("name",item);
+                Log.d("lol",item);
+                startActivity(intent);
+            }
+        });
+
 
         return v;
     }
