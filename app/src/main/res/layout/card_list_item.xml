@@ -51,5 +51,15 @@
             android:gravity="bottom|right"
             android:background="@drawable/bbuton_primary_rounded"/>
 
+        <Button
+            android:id="@+id/recipe"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_gravity="bottom|left"
+            android:gravity="bottom|left"
+            android:background="@drawable/bbuton_primary_rounded"/>
+
+
+
     </LinearLayout>
 </android.support.v7.widget.CardView>
