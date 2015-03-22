@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white">
+    android:background="@android:color/white"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,59 +15,113 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="4">
-    <com.pkmmte.view.CircularImageView
-        android:id="@+id/img"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:src="@drawable/rsz_ingredients"
-        app:border="true"
-        android:layout_marginLeft="10dp"
-        app:border_color="#EEEEEE"
-        app:border_width="4dp"
-        app:shadow="true" />
+            android:layout_weight="4"
+            android:gravity="center_vertical"
+            android:layout_marginRight="4dp">
+
+            <com.pkmmte.view.CircularImageView
+                android:id="@+id/img"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/rsz_ingredients"
+                android:layout_gravity="center"
+                app:border="true"
+                app:border_color="#EEEEEE"
+                app:border_width="2dp"
+                app:shadow="true"
+                android:layout_marginRight="5dp"/>
         </LinearLayout>
 
-    <LinearLayout
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
-       android:orientation="vertical"
-       android:layout_weight="1">
-    <TextView
-        android:id="@+id/ing_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:padding="2dp"
-        android:layout_marginTop="6dp"
-        android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
-        android:paddingStart="?android:attr/listPreferredItemPaddingStart"
-        android:textColor="#333"
-        android:textSize="13sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginLeft="8dp">
 
-    <TextView
-        android:id="@+id/ing_price"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-       android:padding="2dp"
-        android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
-        android:paddingStart="?android:attr/listPreferredItemPaddingStart"
-        android:textColor="#333"
-        android:textSize="13sp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1">
 
-    <TextView
-        android:id="@+id/ing_nv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:visibility="gone"
-        android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
-        android:paddingStart="?android:attr/listPreferredItemPaddingStart"
-        android:textColor="#333"
-        android:textSize="13sp" />
+                <TextView
+                    android:id="@+id/ing_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:padding="2dp"
+                    android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
+                    android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+                    android:textColor="#212121"
+                    android:textSize="18sp"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif"
+                    android:textStyle="bold|italic"/>
+            </LinearLayout>
 
-   </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:padding="2dp"
+                    android:text="Price : "
+                    android:textColor="#333"
+                    android:textSize="13sp"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/ing_price"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:padding="2dp"
+                    android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
+                    android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+                    android:textColor="#333"
+                    android:textSize="13sp"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:padding="2dp"
+                    android:text="Nutritional Value : "
+                    android:textColor="#333"
+                    android:textSize="13sp"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/ing_nv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
+                    android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+                    android:textColor="#333"
+                    android:textSize="13sp"
+                    android:visibility="gone"
+                    android:layout_weight="1"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>
