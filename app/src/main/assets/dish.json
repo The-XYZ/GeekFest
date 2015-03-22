@@ -3,22 +3,55 @@
 
 {
 "name" : "Dal Makhani chawal",
-"ing" : [gram,dal,oil,tomato,onion,rice]
+"ing" : [
+
+       {"iname":"dal", "cost":" 118/kg"},
+       {"iname":"oil", "cost":" 58/kg"},
+       {"iname":"tomato", "cost":" 70/kg"},
+       {"iname":"onion", "cost":" 40/kg"},
+       {"iname":"rice", "cost":" 68/kg"}
+]
+   "cost" :"131"
 },
 
 {
 "name" : "Dum Aloo + roti",
-"ing" : [potato,oil,tomato,wheat,onion]
-},
+"ing" : [
 
+       {"iname":"potato", "cost":" 24/kg"},
+       {"iname":"oil", "cost":" 58/kg"},
+       {"iname":"tomato", "cost":" 70/kg"},
+       {"iname":"onion", "cost":" 40/kg"},
+       {"iname":"wheat", "cost":" 18/kg"}
+]
+   "cost" :"112"
+
+},
 {
 "name" : "Aloo Capcicum + roti",
-"ing" : [potato,oil,carrot,wheat,tomato]
-},
+"ing" : [
 
+       {"iname":"potato", "cost":" 24/kg"},
+       {"iname":"oil", "cost":" 58/kg"},
+       {"iname":"tomato", "cost":" 70/kg"},
+       {"iname":"wheat", "cost":" 18/kg"},
+       {"iname":"carrot", "cost":" 18/kg"}
+]
+   "cost" :"123"
+
+},
 {
 "name" : "Palak Paneer + roti",
-"ing" : [cottage cheese,wheat,spinach,oil,tomato]
+"ing" : [
+
+       {"iname":"cottage cheese", "cost":" 240/kg"},
+       {"iname":"wheat", "cost":" 18/kg"},
+       {"iname":"spinach", "cost":" 16/kg"},
+       {"iname":"oil", "cost":" 58/kg"},
+       {"iname":"tomato", "cost":" 70/kg"}
+]
+   "cost" :"174"
+
 }
 
 ]
