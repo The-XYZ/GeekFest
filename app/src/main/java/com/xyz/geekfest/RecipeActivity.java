@@ -65,7 +65,7 @@ public class RecipeActivity extends ActionBarActivity {
         q = new MyAdapter3(getApplicationContext(), 0, list3);
         q.setNotifyOnChange(true);
 
-        String URL_NO_SEARCH="http://192.168.4.8:8000/api?list="+arrayString;
+        String URL_NO_SEARCH="http://tosc.in:5090/api?list="+arrayString;
         Log.d("lol", URL_NO_SEARCH);
 
         JsonObjectRequest jsonReq = new JsonObjectRequest(Request.Method.GET,

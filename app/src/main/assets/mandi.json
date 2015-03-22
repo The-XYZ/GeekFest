@@ -37,12 +37,12 @@
       "State": "Uttar Pradesh",
       "District": "Agra",
       "Market": "Agra",
-      "Commodity": "Barley",
+      "Commodity": "Fish",
       "Variety": "Dara",
       "Arrival_Date": "21/03/2015",
       "Min_x0020_Price": 1570,
       "Max_x0020_Price": 1630,
-      "Modal_x0020_Price": 1600,
+      "Modal_x0020_Price": 7200,
       "nu":"376"
     },
 
