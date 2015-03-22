@@ -72,8 +72,19 @@ public class RecipeActivity extends ActionBarActivity {
                 if (response != null) {
                     try {
 
-                        JSONArray array=response.getJSONArray("data");
+                        JSONArray test=response.getJSONArray("data");
 
+
+                        for ( int i = 0; i < test.length() ; i++)
+                        {
+                             namelist.add(test.getJSONObject(i).getString("name"));
+                            youtubelist.add(test.getJSONObject(i).getString("video"));
+                            recipelist.add(test.getJSONObject(i).getString("recipe"));
+                            imagelist.add(test.getJSONObject(i).getString("url"));
+
+
+
+                        }
 
                         for(int i =0 ; i <namelist.size() ; i++)
                         {
