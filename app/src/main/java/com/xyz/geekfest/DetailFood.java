@@ -30,8 +30,10 @@ public class DetailFood extends ActionBarActivity {
 
     String URL_NO_SEARCH;
     String SEARCH;
-    String item,price,itemid=null;
+    String item,price,price2,itemid=null;
     String sugar,carbo,fat,energy;
+    Integer integer,integer2;
+
 
     private PieChart mChart;
     @Override
@@ -40,6 +42,9 @@ public class DetailFood extends ActionBarActivity {
         setContentView(R.layout.detail_food);
         item=getIntent().getExtras().getString("name");
         price=getIntent().getExtras().getString("price");
+       integer=Integer.parseInt(price);
+        integer2=integer/100;
+        price2=integer2.toString();
 
         getSupportActionBar().setTitle("Graph");
 
@@ -110,7 +115,7 @@ public class DetailFood extends ActionBarActivity {
 
                         // mChart.setTouchEnabled(false);
 
-                        mChart.setCenterText("₹\n"+price);
+                        mChart.setCenterText("₹\n"+price2);
                         mChart.setCenterTextSizePixels(150);
 
                         setData(3, 100);
