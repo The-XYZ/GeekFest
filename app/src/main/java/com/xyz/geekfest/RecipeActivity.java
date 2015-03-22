@@ -186,7 +186,10 @@ public class RecipeActivity extends ActionBarActivity {
             holder.youtubeButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(youlink)));
+
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube://" + youlink));
+                    startActivity(intent);
+                
 
                 }
             });
