@@ -31,4 +31,5 @@ dependencies {
     compile 'com.getbase:floatingactionbutton:1.9.0'
     compile files('lib/Parse-1.8.2.jar')
     compile 'com.parse.bolts:bolts-android:1.1.4'
+    compile 'com.github.PhilJay:MPAndroidChart:v2.0.8'
 }
