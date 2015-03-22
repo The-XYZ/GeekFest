@@ -25,6 +25,7 @@ import com.astuetz.PagerSlidingTabStrip;
 import com.flaviofaria.kenburnsview.KenBurnsView;
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.nineoldandroids.view.ViewHelper;
+import com.parse.ParseInstallation;
 import com.xyz.geekfest.Helperclasses.AlphaForegroundColorSpan;
 import com.xyz.geekfest.Helperclasses.RecipeActivity;
 import com.xyz.geekfest.Helperclasses.ScrollTabHolder;
@@ -57,6 +58,8 @@ public class MainActivity extends ActionBarActivity implements ScrollTabHolder, 
     private TypedValue mTypedValue = new TypedValue();
     private SpannableString mSpannableString;
     private AlphaForegroundColorSpan mAlphaForegroundColorSpan;
+
+    int[] drawable={R.drawable.one,R.drawable.two,R.drawable.three,R.drawable.four,R.drawable.five};
 
 
 
@@ -95,6 +98,8 @@ public class MainActivity extends ActionBarActivity implements ScrollTabHolder, 
         mMinHeaderTranslation = -mMinHeaderHeight + getActionBarHeight();
 
         setContentView(R.layout.activity_main);
+
+        ParseInstallation.getCurrentInstallation().saveInBackground();
 
         mHeaderPicture = (KenBurnsView) findViewById(R.id.header_picture);
 
@@ -136,7 +141,9 @@ public class MainActivity extends ActionBarActivity implements ScrollTabHolder, 
         SparseArrayCompat<ScrollTabHolder> scrollTabHolders = mPagerAdapter.getScrollTabHolders();
         ScrollTabHolder currentHolder = scrollTabHolders.valueAt(position);
 
+
         currentHolder.adjustScroll((int) (mHeader.getHeight() + ViewHelper.getTranslationY(mHeader)));
+
     }
 
     @Override
@@ -269,6 +276,7 @@ public class MainActivity extends ActionBarActivity implements ScrollTabHolder, 
         // Handle presses on the action bar items
         switch (item.getItemId()) {
             case R.id.save:
+
                 startActivity(new Intent(MainActivity.this, RecipeActivity.class));
                 //openSearch();
                 return true;

@@ -2,6 +2,8 @@
 <resources>
 
     <string name="app_name">GeekFest</string>
+    <string name="recipe">Suggest me a dish</string>
+
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 
