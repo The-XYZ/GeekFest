@@ -21,13 +21,14 @@ public class DetailFood extends ActionBarActivity {
 
     String URL_NO_SEARCH;
     String SEARCH;
-    String item,itemid=null;
+    String item,price,itemid=null;
     String sugar,carbo,fat,energy;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.detail_food);
         item=getIntent().getExtras().getString("name");
+        price=getIntent().getExtras().getString("price");
 
         URL_NO_SEARCH="http://api.nal.usda.gov/usda/ndb/search/?format=json&q="+item+"&sort=n&max=25&offset=0&api_key=ELqzBqg05z4iZKEj5uX8SnFo5mzIpWbYhAbDP3M9";
         Log.d("lol", URL_NO_SEARCH);
