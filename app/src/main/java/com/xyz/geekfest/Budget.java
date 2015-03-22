@@ -1,6 +1,7 @@
 package com.xyz.geekfest;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -41,7 +42,7 @@ public class Budget extends ActionBarActivity {
 
 
     private FeatureCoverFlow mCoverFlow;
-    private CoverFlowAdapter mAdapter;
+    private CoverFlowAdapter mAdapter =null;
     private FloatingActionButton createDream;
     private ArrayList<DreamEntity> mData = new ArrayList<>(0);
 
@@ -50,8 +51,14 @@ public class Budget extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_budget);
 
+        mAdapter = new CoverFlowAdapter(getApplicationContext());
+        mCoverFlow = (FeatureCoverFlow) findViewById(R.id.coverflow);
+        createDream =(FloatingActionButton)findViewById(R.id.fab);
+
 
         List<String> responseList = new ArrayList<String>();
+        adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_dropdown_item_1line, responseList);
 
         JSONObject json = null;
         try {
@@ -76,15 +83,10 @@ public class Budget extends ActionBarActivity {
             }
         }
 
-         adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_dropdown_item_1line, responseList);
+
          textView = (AutoCompleteTextView)
                 findViewById(R.id.Months);
         textView.setAdapter(adapter);
-
-        mAdapter = new CoverFlowAdapter(Budget.this);
-        mCoverFlow = (FeatureCoverFlow) findViewById(R.id.coverflow);
-        createDream =(FloatingActionButton)findViewById(R.id.fab);
 
 
         textView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -146,8 +148,9 @@ public class Budget extends ActionBarActivity {
                     }
                     for (int i = 0; i < array2.length(); i++) {
                         try {
-                            inglist.add(array2.getJSONObject(i).getString("iname"));
-                            pricelist.add(array2.getJSONObject(i).getString("price"));
+                            Bitmap pic = givepic(array2.getJSONObject(i).getString("iname"));
+                            mData.add(new DreamEntity(pic, array2.getJSONObject(i).getString("iname"), array2.getJSONObject(i).getString("price") ));
+
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -169,8 +172,8 @@ public class Budget extends ActionBarActivity {
                     }
                     for (int i = 0; i < array2.length(); i++) {
                         try {
-                            inglist.add(array2.getJSONObject(i).getString("iname"));
-                            pricelist.add(array2.getJSONObject(i).getString("price"));
+                            Bitmap pic = givepic(array2.getJSONObject(i).getString("iname"));
+                            mData.add(new DreamEntity(pic, array2.getJSONObject(i).getString("iname"), array2.getJSONObject(i).getString("price") ));
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -192,8 +195,8 @@ public class Budget extends ActionBarActivity {
                     }
                     for (int i = 0; i < array2.length(); i++) {
                         try {
-                            inglist.add(array2.getJSONObject(i).getString("iname"));
-                            pricelist.add(array2.getJSONObject(i).getString("price"));
+                            Bitmap pic = givepic(array2.getJSONObject(i).getString("iname"));
+                            mData.add(new DreamEntity(pic, array2.getJSONObject(i).getString("iname"), array2.getJSONObject(i).getString("price") ));
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -209,6 +212,22 @@ public class Budget extends ActionBarActivity {
         });
 
 //        mTitle = (TextSwitcher) v.findViewById(R.id.title);
+
+
+
+
+
+        mCoverFlow.setOnScrollPositionListener(new FeatureCoverFlow.OnScrollPositionListener() {
+            @Override
+            public void onScrolledToPosition(int position) {
+//                mTitle.setText((mData.get(position).data));
+            }
+
+            @Override
+            public void onScrolling() {
+//                mTitle.setText("");
+            }
+        });
 
     }
 
@@ -328,11 +347,8 @@ public class Budget extends ActionBarActivity {
             ViewHolder holder = (ViewHolder) rowView.getTag();
 
 
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            // downsizing image as it throws OutOfMemory Exception for larger
-            // images
-            options.inSampleSize = 8;
-            final Bitmap bitmap = mData.get(position).pic;
+
+            Bitmap bitmap = mData.get(position).pic;
 
             holder.image.setImageBitmap(bitmap);
 
