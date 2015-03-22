@@ -185,7 +185,7 @@ public class RecipeActivity extends ActionBarActivity {
                     @Override
                     public void onClick(View v) {
                         FragmentManager fm = getFragmentManager();
-                        RecipeDialog dialog = new RecipeDialog();
+                       RecipeDialog dialog=RecipeDialog.newInstance(each.cname,each.crecipe);
                         dialog.show(fm, "fragment_dialog");
                     }
                 });
