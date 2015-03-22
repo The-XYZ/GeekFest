@@ -1,5 +1,7 @@
 package com.xyz.geekfest;
 
+import android.content.Context;
+import android.graphics.LinearGradient;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -11,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -21,6 +24,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.pkmmte.view.CircularImageView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -39,9 +43,9 @@ public class RecipeActivity extends ActionBarActivity {
 
     ArrayList<EachRow3> list3 = new ArrayList<RecipeActivity.EachRow3>();
 
-    RecyclerView mListView;
+    ListView mListView;
 
-    MyCardsAdapter q;
+   MyAdapter3 q;
     EachRow3 each;
 
     @Override
@@ -51,8 +55,10 @@ public class RecipeActivity extends ActionBarActivity {
 
         String arrayString = getIntent().getStringExtra("data") ;
 
+        mListView = (ListView)findViewById(R.id.recycler_view);
 
-
+        q = new MyAdapter3(getApplicationContext(), 0, list3);
+        q.setNotifyOnChange(true);
 
         String URL_NO_SEARCH="192.168.4.8:8000/api?list="+arrayString;
         Log.d("lol", URL_NO_SEARCH);
@@ -67,6 +73,24 @@ public class RecipeActivity extends ActionBarActivity {
                     try {
 
                         JSONArray array=response.getJSONArray("data");
+
+
+                        for(int i =0 ; i <namelist.size() ; i++)
+                        {
+                            each = new EachRow3();
+                            each.cname = namelist.get(i) ;
+//                            each.crecipe = pricelist.get(i) ;
+                            // each.cpic  = ;
+                            each.cyoutube = youtubelist.get(i);
+                            each.crecipe = recipelist.get(i);
+                            each.cimage = imagelist.get(i);
+
+
+                            list3.add(each);
+                        }
+
+
+
 
 //                                itemid=array.getJSONObject(0).getString("ndbno");
 //                                Log.d("lol",itemid);
@@ -88,12 +112,7 @@ public class RecipeActivity extends ActionBarActivity {
 
 
 
-
-        mListView = (RecyclerView) findViewById(R.id.recycler_view);
-
-        q = new MyCardsAdapter( list3);
-
-
+        mListView.setAdapter(q);
 
 
     }
@@ -123,66 +142,79 @@ public class RecipeActivity extends ActionBarActivity {
 
 
 
+    class MyAdapter3 extends ArrayAdapter<EachRow3> {
+        LayoutInflater inflat;
+        ViewHolder holder;
 
-    public class MyCardsAdapter extends RecyclerView.Adapter<MyCardsAdapter.ViewHolder>{
-
-        private String[] myList;
-
-        public MyCardsAdapter(final String[] list){
-            myList = list;
-        }
-
-
-        @Override
-        public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-            CardView v = (CardView) LayoutInflater.from(viewGroup.getContext())
-                    .inflate(R.layout.card_list_item, viewGroup, false);
-            return new ViewHolder(v);
+        public MyAdapter3(Context context, int textViewResourceId,
+                          ArrayList<EachRow3> objects) {
+            super(context, textViewResourceId, objects);
+            // TODO Auto-generated constructor stub
+            inflat = LayoutInflater.from(context);
         }
 
         @Override
-        public void onBindViewHolder(final ViewHolder viewHolder, final int i) {
-            viewHolder.textView.setText(myList[i].toString());
-            viewHolder.imageView.setImageResource(R.drawable.two);
-            viewHolder.youtubeButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
+        public View getView(final int position, View convertView, ViewGroup parent) {
+            // TODO Auto-generated method stub
+            final int pos=position;
 
-                }
-            });
+            if (convertView == null) {
+                convertView = inflat.inflate(R.layout.card_list_item, null);
+                holder = new ViewHolder();
+
+
+                holder.textView = (TextView) convertView.findViewById(R.id.textview_name);
+                holder.youtubeButton = (Button) convertView.findViewById(R.id.youtube);
+                holder.recipeButton = (Button) convertView.findViewById(R.id.recipe);
+                holder.imageView  = (ImageView) convertView.findViewById(R.id.image_name);
+
+                convertView.setTag(holder);
+            }
+            holder = (ViewHolder) convertView.getTag();
+            EachRow3 row = getItem(position);
+//            Log.d("size", row.text);
+
+            holder.textView.setText(row.cname);
+            holder.youtubeButton.setText("Watch recipe");
+            holder.recipeButton.setText("View Recipe");
+            holder.imageView.setImageResource(R.drawable.cook);
+
+            // image
+            // value
+
+            return convertView;
+
         }
 
-        @Override
-        public int getItemCount() {
-            return 376;
-        }
 
 
-        public long getItemId(final int position) {
-            return position;
-        }
 
-        public class ViewHolder extends RecyclerView.ViewHolder{
+        private class ViewHolder {
 
             public TextView textView;
             public ImageView imageView;
             public Button youtubeButton;
+            public Button recipeButton;
 
-            public ViewHolder(CardView itemView) {
-                super(itemView);
-                this.textView = (TextView) itemView.findViewById(R.id.textview_name);
-                this.imageView = (ImageView) itemView.findViewById(R.id.image_name);
-                this.youtubeButton = (Button) itemView.findViewById(R.id.youtube );
-            }
         }
+
+
+        @Override
+        public EachRow3 getItem(int position) {
+            // TODO Auto-generated method stub
+            return list3.get(position);
+        }
+
     }
+
+
 
 
     private class EachRow3
     {
         String cname;
         String crecipe ;
-        Drawable cyoutube ;
+        String cyoutube ;
         String cimage;
 
     }
