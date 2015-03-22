@@ -20,7 +20,7 @@
     <item>
         <shape>
             <stroke android:color="@android:color/white" android:width="1dp"/>
-            <solid android:color="@android:color/transparent" />
+            <solid android:color="#F44336" />
             <corners android:radius="3dp" />
         </shape>
     </item>

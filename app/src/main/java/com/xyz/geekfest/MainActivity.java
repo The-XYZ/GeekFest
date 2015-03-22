@@ -276,7 +276,7 @@ public class MainActivity extends ActionBarActivity implements ScrollTabHolder, 
         switch (item.getItemId()) {
             case R.id.save:
 
-                startActivity(new Intent(MainActivity.this, RecipeActivity.class));
+                startActivity(new Intent(MainActivity.this, Budget.class));
                 //openSearch();
                 return true;
             default:

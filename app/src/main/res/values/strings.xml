@@ -27,5 +27,6 @@
 
     </array>
     <string name="title_activity_recipe">RecipeActivity</string>
+    <string name="title_activity_budget">Budget</string>
 
 </resources>
