@@ -6,6 +6,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,9 +18,13 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.flaviofaria.kenburnsview.KenBurnsView;
 import com.pkmmte.view.CircularImageView;
-import com.xyz.geekfest.Helperclasses.RecipeActivity;
 import com.xyz.geekfest.Helperclasses.ScrollTabHolderFragment;
 
 import org.json.JSONArray;
@@ -129,7 +134,47 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
         recipe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                  startActivity(new Intent(getActivity(), RecipeActivity.class));
+
+                String joined = TextUtils.join(",", namelist);
+
+                String URL_NO_SEARCH="192.168.4.8:8000/api?list="+joined;
+                Log.d("lol", URL_NO_SEARCH);
+
+                JsonObjectRequest jsonReq = new JsonObjectRequest(Request.Method.GET,
+                        URL_NO_SEARCH, (String)null, new Response.Listener<JSONObject>() {
+
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        VolleyLog.d("LOL", "Response: " + response.toString());
+                        if (response != null) {
+                            try {
+
+                                JSONArray array=response.getJSONArray("data");
+
+//                                itemid=array.getJSONObject(0).getString("ndbno");
+//                                Log.d("lol",itemid);
+//                                parseNutrients();
+
+                                Intent i = new Intent(getActivity() ,  RecipeActivity.class);
+                                i.putExtra("data" , array.toString());
+                                startActivity(i);
+
+
+                            }
+                            catch (JSONException e){
+                            }
+                        }
+                    }
+                }, new Response.ErrorListener() {
+
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        VolleyLog.d("LOL", "Error: " + error.getMessage());
+
+                    }
+                });
+                AppController.getInstance().addToRequestQueue(jsonReq);
+
 
             }
         });
@@ -427,6 +472,7 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
 
         mListView.setAdapter(q);
 
+
         handler=new Handler();
         handler.postDelayed(new Runnable() {
             @Override
@@ -446,6 +492,8 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
             }
         });
 
+
+        Openrecipe();
 
         return v;
     }
@@ -556,12 +604,56 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
     }
 
 
-//    public void Openrecipe()
-//    {
-//
-//
-//        startActivity(new Intent(getActivity(), RecipeActivity.class));
-//    }
+    public void Openrecipe()
+    {
+        String joined = TextUtils.join(",", namelist);
+       joined =  joined.replace("(","");
+        joined =  joined.replace(")","");
+        joined =  joined.replace(" ",",");
+        joined =  joined.replace("-",",");
+
+
+
+
+        String URL_NO_SEARCH="192.168.4.8:8000/api?list="+joined;
+        Log.d("lol", URL_NO_SEARCH);
+
+        JsonObjectRequest jsonReq = new JsonObjectRequest(Request.Method.GET,
+                URL_NO_SEARCH, (String)null, new Response.Listener<JSONObject>() {
+
+            @Override
+            public void onResponse(JSONObject response) {
+                VolleyLog.d("LOL", "Response: " + response.toString());
+                if (response != null) {
+                    try {
+
+                        JSONArray array=response.getJSONArray("data");
+
+//                                itemid=array.getJSONObject(0).getString("ndbno");
+//                                Log.d("lol",itemid);
+//                                parseNutrients();
+
+                        Intent i = new Intent(getActivity() ,  RecipeActivity.class);
+                        i.putExtra("data" , array.toString());
+                        startActivity(i);
+
+
+                    }
+                    catch (JSONException e){
+                    }
+                }
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                VolleyLog.d("LOL", "Error: " + error.getMessage());
+
+            }
+        });
+        AppController.getInstance().addToRequestQueue(jsonReq);
+
+    }
 
 
     public static JSONArray sortJsonArrayPrice(JSONArray array) {

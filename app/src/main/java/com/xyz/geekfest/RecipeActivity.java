@@ -1,11 +1,9 @@
-package com.xyz.geekfest.Helperclasses;
+package com.xyz.geekfest;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-
-import com.xyz.geekfest.R;
 
 public class RecipeActivity extends ActionBarActivity {
 
