@@ -1,0 +1,26 @@
+{
+"data": [
+
+{
+"name" : "Dal Makhani chawal",
+"ing" : [gram,dal,oil,tomato,onion,rice]
+},
+
+{
+"name" : "Dum Aloo + roti",
+"ing" : [potato,oil,tomato,wheat,onion]
+},
+
+{
+"name" : "Aloo Capcicum + roti",
+"ing" : [potato,oil,carrot,wheat,tomato]
+},
+
+{
+"name" : "Palak Paneer + roti",
+"ing" : [cottage cheese,wheat,spinach,oil,tomato]
+}
+
+]
+
+}

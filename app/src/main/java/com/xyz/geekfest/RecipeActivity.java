@@ -206,7 +206,6 @@ public class RecipeActivity extends ActionBarActivity {
 
                     Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube://" + youlink));
                     startActivity(intent);
-                
 
                 }
             });
