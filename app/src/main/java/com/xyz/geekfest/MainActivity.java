@@ -27,7 +27,6 @@ import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.nineoldandroids.view.ViewHelper;
 import com.parse.ParseInstallation;
 import com.xyz.geekfest.Helperclasses.AlphaForegroundColorSpan;
-import com.xyz.geekfest.Helperclasses.RecipeActivity;
 import com.xyz.geekfest.Helperclasses.ScrollTabHolder;
 import com.xyz.geekfest.Helperclasses.ScrollTabHolderFragment;
 
@@ -103,7 +102,7 @@ public class MainActivity extends ActionBarActivity implements ScrollTabHolder, 
 
         mHeaderPicture = (KenBurnsView) findViewById(R.id.header_picture);
 
-        mHeaderPicture.setImageResource(R.drawable.rsz_sabzi_bg);
+        mHeaderPicture.setImageResource(R.drawable.rsz_spices);
 
 
         mHeader = findViewById(R.id.header);
