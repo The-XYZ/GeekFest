@@ -4075,7 +4075,8 @@
       "Arrival_Date": "21/03/2015",
       "Min_x0020_Price": 6000,
       "Max_x0020_Price": 6150,
-      "Modal_x0020_Price": 6050
+      "Modal_x0020_Price": 6050,
+      "nu":"48"
     },
     {
       "@id": "Table3721",
@@ -4088,7 +4089,8 @@
       "Arrival_Date": "21/03/2015",
       "Min_x0020_Price": 1490,
       "Max_x0020_Price": 1580,
-      "Modal_x0020_Price": 1510
+      "Modal_x0020_Price": 1510,
+      "nu":"30"
     },
     {
       "@id": "Table3722",
@@ -4101,7 +4103,8 @@
       "Arrival_Date": "21/03/2015",
       "Min_x0020_Price": 1225,
       "Max_x0020_Price": 1300,
-      "Modal_x0020_Price": 1260
+      "Modal_x0020_Price": 1260,
+      "nu":"23"
     },
     {
       "@id": "Table3723",
@@ -4114,7 +4117,8 @@
       "Arrival_Date": "21/03/2015",
       "Min_x0020_Price": 2700,
       "Max_x0020_Price": 2750,
-      "Modal_x0020_Price": 2720
+      "Modal_x0020_Price": 2720,
+      "nu":"149"
     },
     {
       "@id": "Table3724",
@@ -4127,21 +4131,10 @@
       "Arrival_Date": "21/03/2015",
       "Min_x0020_Price": 3025,
       "Max_x0020_Price": 3100,
-      "Modal_x0020_Price": 3060
+      "Modal_x0020_Price": 3060,
+      "nu":"23"
     },
-    {
-      "@id": "Table3725",
-      "@rowOrder": 3724,
-      "State": "Uttar Pradesh",
-      "District": "Faizabad",
-      "Market": "Faizabad",
-      "Commodity": "Green Chilly",
-      "Variety": "Other",
-      "Arrival_Date": "21/03/2015",
-      "Min_x0020_Price": 2000,
-      "Max_x0020_Price": 2100,
-      "Modal_x0020_Price": 2020
-    },
+
     {
       "@id": "Table3726",
       "@rowOrder": 3725,
@@ -4153,21 +4146,10 @@
       "Arrival_Date": "21/03/2015",
       "Min_x0020_Price": 3075,
       "Max_x0020_Price": 3150,
-      "Modal_x0020_Price": 3100
+      "Modal_x0020_Price": 3100,
+      "nu":"23"
     },
-    {
-      "@id": "Table3727",
-      "@rowOrder": 3726,
-      "State": "Uttar Pradesh",
-      "District": "Faizabad",
-      "Market": "Faizabad",
-      "Commodity": "Horses Gram",
-      "Variety": "Other",
-      "Arrival_Date": "21/03/2015",
-      "Min_x0020_Price": 3650,
-      "Max_x0020_Price": 3700,
-      "Modal_x0020_Price": 3670
-    },
+
     {
       "@id": "Table3728",
       "@rowOrder": 3727,
@@ -4179,21 +4161,10 @@
       "Arrival_Date": "21/03/2015",
       "Min_x0020_Price": 1400,
       "Max_x0020_Price": 1475,
-      "Modal_x0020_Price": 1420
+      "Modal_x0020_Price": 1420,
+      "nu":"371"
     },
-    {
-      "@id": "Table3729",
-      "@rowOrder": 3728,
-      "State": "Uttar Pradesh",
-      "District": "Faizabad",
-      "Market": "Faizabad",
-      "Commodity": "Mousambi",
-      "Variety": "Other",
-      "Arrival_Date": "21/03/2015",
-      "Min_x0020_Price": 2075,
-      "Max_x0020_Price": 2150,
-      "Modal_x0020_Price": 2100
-    },
+
     {
       "@id": "Table3730",
       "@rowOrder": 3729,
@@ -4205,7 +4176,8 @@
       "Arrival_Date": "21/03/2015",
       "Min_x0020_Price": 3460,
       "Max_x0020_Price": 3500,
-      "Modal_x0020_Price": 3475
+      "Modal_x0020_Price": 3475,
+      "nu":"60"
     },
     {
       "@id": "Table3731",
@@ -4218,7 +4190,8 @@
       "Arrival_Date": "21/03/2015",
       "Min_x0020_Price": 1550,
       "Max_x0020_Price": 1600,
-      "Modal_x0020_Price": 1570
+      "Modal_x0020_Price": 1570,
+      "nu":"40"
     },
     {
       "@id": "Table3732",
@@ -4231,21 +4204,10 @@
       "Arrival_Date": "21/03/2015",
       "Min_x0020_Price": 3260,
       "Max_x0020_Price": 3300,
-      "Modal_x0020_Price": 3275
+      "Modal_x0020_Price": 3275,
+      "nu":"23"
     },
-    {
-      "@id": "Table3733",
-      "@rowOrder": 3732,
-      "State": "Uttar Pradesh",
-      "District": "Faizabad",
-      "Market": "Faizabad",
-      "Commodity": "Pointed gourd (Parval)",
-      "Variety": "Other",
-      "Arrival_Date": "21/03/2015",
-      "Min_x0020_Price": 3725,
-      "Max_x0020_Price": 3800,
-      "Modal_x0020_Price": 3750
-    },
+
     {
       "@id": "Table3734",
       "@rowOrder": 3733,
@@ -4257,7 +4219,8 @@
       "Arrival_Date": "21/03/2015",
       "Min_x0020_Price": 5700,
       "Max_x0020_Price": 5800,
-      "Modal_x0020_Price": 5725
+      "Modal_x0020_Price": 5725,
+      "nu":"83"
     },
     {
       "@id": "Table3735",
@@ -4270,7 +4233,9 @@
       "Arrival_Date": "21/03/2015",
       "Min_x0020_Price": 550,
       "Max_x0020_Price": 600,
-      "Modal_x0020_Price": 570
+      "Modal_x0020_Price": 570,
+      "nu":"77"
+
     },
     {
       "@id": "Table3736",
@@ -4283,21 +4248,10 @@
       "Arrival_Date": "21/03/2015",
       "Min_x0020_Price": 1400,
       "Max_x0020_Price": 1475,
-      "Modal_x0020_Price": 1450
+      "Modal_x0020_Price": 1450,
+      "nu":"26"
     },
-    {
-      "@id": "Table3737",
-      "@rowOrder": 3736,
-      "State": "Uttar Pradesh",
-      "District": "Faizabad",
-      "Market": "Faizabad",
-      "Commodity": "Raddish",
-      "Variety": "Other",
-      "Arrival_Date": "21/03/2015",
-      "Min_x0020_Price": 500,
-      "Max_x0020_Price": 575,
-      "Modal_x0020_Price": 550
-    },
+
     {
       "@id": "Table3738",
       "@rowOrder": 3737,
@@ -4309,7 +4263,8 @@
       "Arrival_Date": "21/03/2015",
       "Min_x0020_Price": 2050,
       "Max_x0020_Price": 2100,
-      "Modal_x0020_Price": 2080
+      "Modal_x0020_Price": 2080,
+      "nu":"97"
     },
     {
       "@id": "Table3739",
@@ -4322,7 +4277,8 @@
       "Arrival_Date": "21/03/2015",
       "Min_x0020_Price": 1000,
       "Max_x0020_Price": 1050,
-      "Modal_x0020_Price": 1015
+      "Modal_x0020_Price": 1015,
+      "nu":"18"
     },
     {
       "@id": "Table3740",
@@ -4335,7 +4291,8 @@
       "Arrival_Date": "21/03/2015",
       "Min_x0020_Price": 1505,
       "Max_x0020_Price": 1525,
-      "Modal_x0020_Price": 1515
+      "Modal_x0020_Price": 1515,
+      "nu":"38"
     },
     {
       "@id": "Table3741",
