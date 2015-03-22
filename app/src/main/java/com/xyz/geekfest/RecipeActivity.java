@@ -55,7 +55,7 @@ public class RecipeActivity extends ActionBarActivity {
         q = new MyAdapter3(getApplicationContext(), 0, list3);
         q.setNotifyOnChange(true);
 
-        String URL_NO_SEARCH="192.168.4.8:8000/api?list="+arrayString;
+        String URL_NO_SEARCH="http://192.168.4.8:8000/api?list="+arrayString;
         Log.d("lol", URL_NO_SEARCH);
 
         JsonObjectRequest jsonReq = new JsonObjectRequest(Request.Method.GET,
@@ -64,6 +64,7 @@ public class RecipeActivity extends ActionBarActivity {
             @Override
             public void onResponse(JSONObject response) {
                 VolleyLog.d("LOL", "Response: " + response.toString());
+                Log.d("lol",response.toString());
                 if (response != null) {
                     try {
 
@@ -76,7 +77,6 @@ public class RecipeActivity extends ActionBarActivity {
                             youtubelist.add(test.getJSONObject(i).getString("video"));
                             recipelist.add(test.getJSONObject(i).getString("recipe"));
                             imagelist.add(test.getJSONObject(i).getString("url"));
-
 
 
                         }
@@ -95,6 +95,7 @@ public class RecipeActivity extends ActionBarActivity {
                             list3.add(each);
                         }
 
+                        mListView.setAdapter(q);
 
 
 
@@ -115,10 +116,6 @@ public class RecipeActivity extends ActionBarActivity {
             }
         });
         AppController.getInstance().addToRequestQueue(jsonReq);
-
-
-
-        mListView.setAdapter(q);
 
 
     }
