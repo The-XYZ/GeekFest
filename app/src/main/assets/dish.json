@@ -10,7 +10,7 @@
        {"iname":"tomato", "cost":" 70/kg"},
        {"iname":"onion", "cost":" 40/kg"},
        {"iname":"rice", "cost":" 68/kg"}
-]
+],
    "cost" :"131"
 },
 
@@ -23,7 +23,7 @@
        {"iname":"tomato", "cost":" 70/kg"},
        {"iname":"onion", "cost":" 40/kg"},
        {"iname":"wheat", "cost":" 18/kg"}
-]
+],
    "cost" :"112"
 
 },
@@ -36,7 +36,7 @@
        {"iname":"tomato", "cost":" 70/kg"},
        {"iname":"wheat", "cost":" 18/kg"},
        {"iname":"carrot", "cost":" 18/kg"}
-]
+],
    "cost" :"123"
 
 },
@@ -49,7 +49,7 @@
        {"iname":"spinach", "cost":" 16/kg"},
        {"iname":"oil", "cost":" 58/kg"},
        {"iname":"tomato", "cost":" 70/kg"}
-]
+],
    "cost" :"174"
 
 }
