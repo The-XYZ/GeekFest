@@ -147,7 +147,7 @@ public class DetailFood extends ActionBarActivity {
         float fatf;
         if (!fat.equals("0.00"))
                 fatf=Float.parseFloat(fat);
-        else fatf=Float.parseFloat(fat+"0.01");
+        else fatf=Float.parseFloat("0.01");
         float energyf=Float.parseFloat(energy);
 
 
