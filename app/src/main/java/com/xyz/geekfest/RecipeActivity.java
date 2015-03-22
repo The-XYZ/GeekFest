@@ -1,6 +1,8 @@
 package com.xyz.geekfest;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
@@ -49,6 +51,7 @@ public class RecipeActivity extends ActionBarActivity {
         setContentView(R.layout.activity_recipe);
 
         String arrayString = getIntent().getStringExtra("data") ;
+
 
         mListView = (ListView)findViewById(R.id.recycler_view);
 
@@ -179,6 +182,14 @@ public class RecipeActivity extends ActionBarActivity {
 
             holder.textView.setText(row.cname);
             holder.youtubeButton.setText("Watch recipe");
+            final String youlink = each.cyoutube;
+            holder.youtubeButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(youlink)));
+
+                }
+            });
             holder.recipeButton.setText("View Recipe");
             holder.imageView.setImageResource(R.drawable.cook);
 
