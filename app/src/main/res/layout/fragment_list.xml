@@ -4,20 +4,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-        <!--<com.getbase.floatingactionbutton.FloatingActionButton
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />-->
-        <Button
+        <!--<Button
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:background="@drawable/bbuton_primary_rounded"
             android:id="@+id/recipeButton"
             android:text="@string/recipe"
-            android:textColor="#000000"/>
+            android:textColor="#000000"/>-->
 <ListView
     android:id="@+id/listView"
     android:layout_width="match_parent"
@@ -27,8 +20,15 @@
     android:dividerHeight="1px"
     android:scrollbars="none"/>
 
-
-
-    </LinearLayout>
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/recipeButton"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="bottom|right"
+            android:layout_marginBottom="20dp"
+            android:layout_marginRight="20dp"
+            fab:fab_colorNormal="@color/pink"
+            fab:fab_colorPressed="@color/pink_pressed"/>
 
     </FrameLayout>

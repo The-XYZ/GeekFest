@@ -14,11 +14,11 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.flaviofaria.kenburnsview.KenBurnsView;
+import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.pkmmte.view.CircularImageView;
 import com.xyz.geekfest.Helperclasses.ScrollTabHolderFragment;
 
@@ -43,7 +43,7 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
 
     private static final String ARG_POSITION = "position";
 
-    Button recipe ;
+    FloatingActionButton recipe ;
 
     private ListView mListView;
     private ArrayList<String> mListItems;
@@ -125,7 +125,7 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
         q = new MyAdapter3(getActivity(), 0, list3);
         q.setNotifyOnChange(true);
 
-        recipe = (Button)  v.findViewById(R.id.recipeButton);
+        recipe = (FloatingActionButton)  v.findViewById(R.id.recipeButton);
         recipe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -449,7 +449,7 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
         });
 
 
-        Openrecipe();
+        //Openrecipe();
 
         return v;
     }
