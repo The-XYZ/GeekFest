@@ -109,7 +109,7 @@ public class MainActivity extends ActionBarActivity implements ScrollTabHolder, 
 
         mPagerSlidingTabStrip = (PagerSlidingTabStrip) findViewById(R.id.tabs);
         mViewPager = (ViewPager) findViewById(R.id.pager);
-        mViewPager.setOffscreenPageLimit(1);
+        mViewPager.setOffscreenPageLimit(4);
 
         mPagerAdapter = new PagerAdapter(getSupportFragmentManager());
         mPagerAdapter.setTabHolderScrollingContent(this);
@@ -276,7 +276,7 @@ public class MainActivity extends ActionBarActivity implements ScrollTabHolder, 
         switch (item.getItemId()) {
             case R.id.save:
 
-                startActivity(new Intent(MainActivity.this, RecipeActivity.class));
+                startActivity(new Intent(MainActivity.this, Budget.class));
                 //openSearch();
                 return true;
             default:

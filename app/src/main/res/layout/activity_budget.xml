@@ -1,0 +1,23 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" tools:context="com.xyz.geekfest.Budget">
+
+    <android.support.v7.widget.Toolbar xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:theme="@style/myCustomTheme" />
+
+    <AutoCompleteTextView
+        android:id="@+id/Months"
+        android:layout_width="fill_parent"
+        android:layout_height="100dp"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:textStyle="bold"
+        android:width="200dip"
+        android:paddingRight="10dp"
+        android:background="@drawable/abc_popup_background_mtrl_mult"/>
+
+</RelativeLayout>
