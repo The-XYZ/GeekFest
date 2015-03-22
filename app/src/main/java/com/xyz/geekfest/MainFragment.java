@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import com.flaviofaria.kenburnsview.KenBurnsView;
 import com.pkmmte.view.CircularImageView;
+import com.xyz.geekfest.Helperclasses.RecipeActivity;
 import com.xyz.geekfest.Helperclasses.ScrollTabHolderFragment;
 
 import org.json.JSONArray;
@@ -390,8 +391,12 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
     }
 
 
+    public void Openrecipe()
+    {
 
 
+        startActivity(new Intent(getActivity(), RecipeActivity.class));
+    }
 
 
 
