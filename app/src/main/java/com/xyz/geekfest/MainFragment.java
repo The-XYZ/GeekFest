@@ -160,7 +160,7 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
                     {item=test.getJSONObject(i).getString("Commodity");
                         namelist.add(item);
                         pricelist.add(test.getJSONObject(i).getString("Modal_x0020_Price"));
-                        if(test.getJSONObject(i).optString("nu")!=null && !test.getJSONObject(i).optString("nu").equals("") )
+                        if(!test.getJSONObject(i).optString("nu").equals(""))
                             nvaluelist.add(test.getJSONObject(i).optString("nu"));
                         else
                             nvaluelist.add("23");
@@ -179,7 +179,7 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
                     {item=test.getJSONObject(i).getString("Commodity");
                         namelist.add(item);
                         pricelist.add(test.getJSONObject(i).getString("Modal_x0020_Price"));
-                        if(test.getJSONObject(i).optString("nu")!=null && !test.getJSONObject(i).optString("nu").equals("") )
+                        if(!test.getJSONObject(i).optString("nu").equals(""))
                             nvaluelist.add(test.getJSONObject(i).optString("nu"));
                         else
                             nvaluelist.add("23");
@@ -198,7 +198,7 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
                     {item=test.getJSONObject(i).getString("Commodity");
                         namelist.add(item);
                         pricelist.add(test.getJSONObject(i).getString("Modal_x0020_Price"));
-                        if(test.getJSONObject(i).optString("nu")!=null && !test.getJSONObject(i).optString("nu").equals("") )
+                        if(!test.getJSONObject(i).optString("nu").equals(""))
                             nvaluelist.add(test.getJSONObject(i).optString("nu"));
                         else
                             nvaluelist.add("23");
@@ -217,7 +217,7 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
                     {item=test.getJSONObject(i).getString("Commodity");
                         namelist.add(item);
                         pricelist.add(test.getJSONObject(i).getString("Modal_x0020_Price"));
-                        if(test.getJSONObject(i).optString("nu")!=null && !test.getJSONObject(i).optString("nu").equals("") )
+                        if(!test.getJSONObject(i).optString("nu").equals(""))
                             nvaluelist.add(test.getJSONObject(i).optString("nu"));
                         else
                             nvaluelist.add("23");
@@ -239,7 +239,7 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
 
 
 
-                        if(test.getJSONObject(i).optString("nu")!=null && !test.getJSONObject(i).optString("nu").equals("") )
+                        if(!test.getJSONObject(i).optString("nu").equals(""))
                             nvaluelist.add(test.getJSONObject(i).optString("nu"));
                         else
                             nvaluelist.add("23");
@@ -258,7 +258,7 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
                     {item=test.getJSONObject(i).getString("Commodity");
                         namelist.add(item);
                         pricelist.add(test.getJSONObject(i).getString("Modal_x0020_Price"));
-                        if(test.getJSONObject(i).optString("nu")!=null && !test.getJSONObject(i).optString("nu").equals("") )
+                        if(!test.getJSONObject(i).optString("nu").equals(""))
                             nvaluelist.add(test.getJSONObject(i).optString("nu"));
                         else
                             nvaluelist.add("23");
@@ -277,7 +277,7 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
                     {item=test.getJSONObject(i).getString("Commodity");
                         namelist.add(item);
                         pricelist.add(test.getJSONObject(i).getString("Modal_x0020_Price"));
-                        if(test.getJSONObject(i).optString("nu")!=null && !test.getJSONObject(i).optString("nu").equals("") )
+                        if(!test.getJSONObject(i).optString("nu").equals(""))
                             nvaluelist.add(test.getJSONObject(i).optString("nu"));
                         else
                             nvaluelist.add("23");
