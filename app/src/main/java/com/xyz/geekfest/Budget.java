@@ -3,6 +3,7 @@ package com.xyz.geekfest;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -86,6 +87,11 @@ public class Budget extends ActionBarActivity {
                 findViewById(R.id.Months);
         textView.setAdapter(adapter);
 
+        mAdapter = new CoverFlowAdapter(Budget.this);
+        mCoverFlow = (FeatureCoverFlow) findViewById(R.id.coverflow);
+        createDream =(FloatingActionButton)findViewById(R.id.fab);
+
+
         textView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
@@ -121,8 +127,8 @@ public class Budget extends ActionBarActivity {
                     }
                     for (int i = 0; i < array2.length(); i++) {
                         try {
-                            inglist.add(array2.getJSONObject(i).getString("name"));
-                            pricelist.add(array2.getJSONObject(i).getString("price"));
+                            Bitmap pic = givepic(array2.getJSONObject(i).getString("iname"));
+                            mData.add(new DreamEntity(pic, array2.getJSONObject(i).getString("iname"), array2.getJSONObject(i).getString("price") ));
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -145,7 +151,7 @@ public class Budget extends ActionBarActivity {
                     }
                     for (int i = 0; i < array2.length(); i++) {
                         try {
-                            inglist.add(array2.getJSONObject(i).getString("name"));
+                            inglist.add(array2.getJSONObject(i).getString("iname"));
                             pricelist.add(array2.getJSONObject(i).getString("price"));
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -168,7 +174,7 @@ public class Budget extends ActionBarActivity {
                     }
                     for (int i = 0; i < array2.length(); i++) {
                         try {
-                            inglist.add(array2.getJSONObject(i).getString("name"));
+                            inglist.add(array2.getJSONObject(i).getString("iname"));
                             pricelist.add(array2.getJSONObject(i).getString("price"));
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -191,7 +197,7 @@ public class Budget extends ActionBarActivity {
                     }
                     for (int i = 0; i < array2.length(); i++) {
                         try {
-                            inglist.add(array2.getJSONObject(i).getString("name"));
+                            inglist.add(array2.getJSONObject(i).getString("iname"));
                             pricelist.add(array2.getJSONObject(i).getString("price"));
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -203,9 +209,7 @@ public class Budget extends ActionBarActivity {
 
             }
         });
-        mAdapter = new CoverFlowAdapter(Budget.this);
-        mCoverFlow = (FeatureCoverFlow) findViewById(R.id.coverflow);
-        createDream =(FloatingActionButton)findViewById(R.id.fab);
+
 //        mTitle = (TextSwitcher) v.findViewById(R.id.title);
 
     }
@@ -261,19 +265,15 @@ public class Budget extends ActionBarActivity {
     }
 
     public class DreamEntity {
-        public String imageResId;
-        public String date;
-        public String data;
-        public String mood;
-        public String time;
+        public String name;
+        public String price;
+        public Bitmap pic;
 
 
-        public DreamEntity (String imageResId, String date, String data, String mood, String time){
-            this.imageResId = imageResId;
-            this.date= date;
-            this.data = data;
-            this.mood = mood;
-            this.time = time;
+        public DreamEntity (Bitmap pic, String name, String price){
+            this.pic = pic;
+            this.name= name;
+            this.price = price;
         }
     }
 
@@ -315,10 +315,10 @@ public class Budget extends ActionBarActivity {
                 rowView = inflater.inflate(R.layout.item_coverflow, null);
 
                 ViewHolder viewHolder = new ViewHolder();
-                viewHolder.data = (TextView) rowView.findViewById(R.id.data);
+                viewHolder.name = (TextView) rowView.findViewById(R.id.name);
                 viewHolder.image = (ImageView) rowView.findViewById(R.id.image);
-                viewHolder.date = (TextView) rowView.findViewById(R.id.date);
-                viewHolder.time = (TextView) rowView.findViewById(R.id.time);
+                viewHolder.price = (TextView) rowView.findViewById(R.id.price);
+
 //                viewHolder.mood = (TextView) rowView.findViewById(R.id.mood);
 
 
@@ -334,15 +334,14 @@ public class Budget extends ActionBarActivity {
             // downsizing image as it throws OutOfMemory Exception for larger
             // images
             options.inSampleSize = 8;
-            final Bitmap bitmap = BitmapFactory.decodeFile(Uri.parse(mData.get(position).imageResId).getPath(),
-                    options);
+            final Bitmap bitmap = mData.get(position).pic;
 
             holder.image.setImageBitmap(bitmap);
 
-            holder.date.setText(mData.get(position).date);
-            holder.time.setText(mData.get(position).time);
+
+            holder.price.setText(mData.get(position).price);
 //        holder.mood.setText(mData.get(position).mood);
-            holder.data.setText(mData.get(position).data);
+            holder.name.setText(mData.get(position).name);
 
 
             return rowView;
@@ -350,12 +349,63 @@ public class Budget extends ActionBarActivity {
 
 
         public class ViewHolder {
-            public TextView date;
+            public TextView price;
             public ImageView image;
-            public TextView time;
-            public TextView mood ;
-            public TextView data;
+            public TextView name;
         }
+    }
+
+    public Bitmap givepic(String name)
+    {
+        if(name.equals("dal"))
+        {
+            return BitmapFactory.decodeResource(getResources(), R.drawable.dal);
+
+        }
+        if(name.equals("oil"))
+        {
+            return BitmapFactory.decodeResource(getResources(), R.drawable.oil);
+
+        }
+        if(name.equals("tomato"))
+        {
+            return BitmapFactory.decodeResource(getResources(), R.drawable.tomato);
+
+        }
+        if(name.equals("potato"))
+        {
+            return BitmapFactory.decodeResource(getResources(), R.drawable.potato);
+
+        }
+        if(name.equals("rice"))
+        {
+            return BitmapFactory.decodeResource(getResources(), R.drawable.rice);
+
+        }
+        if(name.equals("onion"))
+        {
+            return BitmapFactory.decodeResource(getResources(), R.drawable.onion);
+
+        }
+        if(name.equals("wheat"))
+        {
+            return BitmapFactory.decodeResource(getResources(), R.drawable.wheat);
+
+        }
+        if(name.equals("carrot"))
+        {
+            return BitmapFactory.decodeResource(getResources(), R.drawable.carrot);
+
+        }
+        if(name.equals("cottage cheese"))
+        {
+            return BitmapFactory.decodeResource(getResources(), R.drawable.dal);
+
+        }
+
+
+            return BitmapFactory.decodeResource(getResources(), R.drawable.dal);
+
     }
 
 }
