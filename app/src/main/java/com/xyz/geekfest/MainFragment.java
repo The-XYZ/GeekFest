@@ -473,6 +473,7 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
 
         mListView.setAdapter(q);
 
+
         handler=new Handler();
         handler.postDelayed(new Runnable() {
             @Override
@@ -492,6 +493,8 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
             }
         });
 
+
+        Openrecipe();
 
         return v;
     }
@@ -602,12 +605,56 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
     }
 
 
-//    public void Openrecipe()
-//    {
-//
-//
-//        startActivity(new Intent(getActivity(), RecipeActivity.class));
-//    }
+    public void Openrecipe()
+    {
+        String joined = TextUtils.join(",", namelist);
+       joined =  joined.replace("(","");
+        joined =  joined.replace(")","");
+        joined =  joined.replace(" ",",");
+        joined =  joined.replace("-",",");
+
+
+
+
+        String URL_NO_SEARCH="192.168.4.8:8000/api?list="+joined;
+        Log.d("lol", URL_NO_SEARCH);
+
+        JsonObjectRequest jsonReq = new JsonObjectRequest(Request.Method.GET,
+                URL_NO_SEARCH, (String)null, new Response.Listener<JSONObject>() {
+
+            @Override
+            public void onResponse(JSONObject response) {
+                VolleyLog.d("LOL", "Response: " + response.toString());
+                if (response != null) {
+                    try {
+
+                        JSONArray array=response.getJSONArray("data");
+
+//                                itemid=array.getJSONObject(0).getString("ndbno");
+//                                Log.d("lol",itemid);
+//                                parseNutrients();
+
+                        Intent i = new Intent(getActivity() ,  RecipeActivity.class);
+                        i.putExtra("data" , array.toString());
+                        startActivity(i);
+
+
+                    }
+                    catch (JSONException e){
+                    }
+                }
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                VolleyLog.d("LOL", "Error: " + error.getMessage());
+
+            }
+        });
+        AppController.getInstance().addToRequestQueue(jsonReq);
+
+    }
 
 
     public static JSONArray sortJsonArrayPrice(JSONArray array) {
