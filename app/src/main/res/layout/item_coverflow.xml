@@ -19,7 +19,7 @@
         android:layout_centerVertical="true"
         android:scaleType="centerCrop"
         tools:src="#EFEFEF"
-        android:background="#aa0091EA"/>
+        android:background="#000000"/>
     </FrameLayout>
 
 <LinearLayout

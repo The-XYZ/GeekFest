@@ -42,7 +42,7 @@ public class Budget extends ActionBarActivity {
 
 
     private FeatureCoverFlow mCoverFlow;
-    private CoverFlowAdapter mAdapter =null;
+    private CoverFlowAdapter mAdapter ;
     private FloatingActionButton createDream;
     private ArrayList<DreamEntity> mData = new ArrayList<>(0);
 
@@ -53,7 +53,7 @@ public class Budget extends ActionBarActivity {
 
         mAdapter = new CoverFlowAdapter(getApplicationContext());
         mCoverFlow = (FeatureCoverFlow) findViewById(R.id.coverflow);
-        createDream =(FloatingActionButton)findViewById(R.id.fab);
+//        createDream =(FloatingActionButton)findViewById(R.id.fab);
 
 
         List<String> responseList = new ArrayList<String>();
@@ -125,7 +125,7 @@ public class Budget extends ActionBarActivity {
                     for (int i = 0; i < array2.length(); i++) {
                         try {
                             Bitmap pic = givepic(array2.getJSONObject(i).getString("iname"));
-                            mData.add(new DreamEntity(pic, array2.getJSONObject(i).getString("iname"), array2.getJSONObject(i).getString("price") ));
+                            mData.add(new DreamEntity(pic, array2.getJSONObject(i).getString("iname"), array2.getJSONObject(i).getString("cost") ));
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -149,7 +149,7 @@ public class Budget extends ActionBarActivity {
                     for (int i = 0; i < array2.length(); i++) {
                         try {
                             Bitmap pic = givepic(array2.getJSONObject(i).getString("iname"));
-                            mData.add(new DreamEntity(pic, array2.getJSONObject(i).getString("iname"), array2.getJSONObject(i).getString("price") ));
+                            mData.add(new DreamEntity(pic, array2.getJSONObject(i).getString("iname"), array2.getJSONObject(i).getString("cost") ));
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -173,7 +173,7 @@ public class Budget extends ActionBarActivity {
                     for (int i = 0; i < array2.length(); i++) {
                         try {
                             Bitmap pic = givepic(array2.getJSONObject(i).getString("iname"));
-                            mData.add(new DreamEntity(pic, array2.getJSONObject(i).getString("iname"), array2.getJSONObject(i).getString("price") ));
+                            mData.add(new DreamEntity(pic, array2.getJSONObject(i).getString("iname"), array2.getJSONObject(i).getString("cost") ));
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -196,7 +196,7 @@ public class Budget extends ActionBarActivity {
                     for (int i = 0; i < array2.length(); i++) {
                         try {
                             Bitmap pic = givepic(array2.getJSONObject(i).getString("iname"));
-                            mData.add(new DreamEntity(pic, array2.getJSONObject(i).getString("iname"), array2.getJSONObject(i).getString("price") ));
+                            mData.add(new DreamEntity(pic, array2.getJSONObject(i).getString("iname"), array2.getJSONObject(i).getString("cost") ));
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -281,18 +281,7 @@ public class Budget extends ActionBarActivity {
 
     }
 
-    public class DreamEntity {
-        public String name;
-        public String price;
-        public Bitmap pic;
 
-
-        public DreamEntity (Bitmap pic, String name, String price){
-            this.pic = pic;
-            this.name= name;
-            this.price = price;
-        }
-    }
 
     public class CoverFlowAdapter extends BaseAdapter {
 
@@ -337,7 +326,6 @@ public class Budget extends ActionBarActivity {
                 viewHolder.price = (TextView) rowView.findViewById(R.id.price);
 
 //                viewHolder.mood = (TextView) rowView.findViewById(R.id.mood);
-
 
                 rowView.setTag(viewHolder);
             }
