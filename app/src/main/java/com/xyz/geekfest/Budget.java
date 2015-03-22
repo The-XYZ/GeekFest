@@ -206,6 +206,9 @@ public class Budget extends ActionBarActivity {
                 }
 
 
+                mAdapter.setData(mData);
+                mCoverFlow.setAdapter(mAdapter);
+
 
             }
         });
