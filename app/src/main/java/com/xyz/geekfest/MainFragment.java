@@ -29,6 +29,9 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 import fr.castorflex.android.smoothprogressbar.SmoothProgressBar;
 
@@ -135,24 +138,28 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
 
         ingData =loadJSONFromAsset();
 
-        JSONArray test = new JSONArray() ;
-        JSONObject myObject =null;
 
-
-        try {
-            myObject = new JSONObject(ingData);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-        try {
-            test = myObject.getJSONArray("mandi");
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
 
         if(mPosition==0)
         {
+
+            JSONObject myObject =null;
+
+            try {
+                myObject = new JSONObject(ingData);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            JSONArray test2 = new JSONArray() ;
+            try {
+                test2 = myObject.getJSONArray("mandi");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            JSONArray test = sortJsonArrayPrice(test2);
+
             for ( int i = 0; i < test.length() ; i++)
             {
                 try {
@@ -160,7 +167,7 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
                     {item=test.getJSONObject(i).getString("Commodity");
                         namelist.add(item);
                         pricelist.add(test.getJSONObject(i).getString("Modal_x0020_Price"));
-                        if(test.getJSONObject(i).optString("nu")!=null && !test.getJSONObject(i).optString("nu").equals("") )
+                        if(!test.getJSONObject(i).optString("nu").equals(""))
                             nvaluelist.add(test.getJSONObject(i).optString("nu"));
                         else
                             nvaluelist.add("23");
@@ -172,6 +179,25 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
         }
         else if(mPosition==1)
         {
+
+
+            JSONObject myObject =null;
+
+            try {
+                myObject = new JSONObject(ingData);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            JSONArray test2 = new JSONArray() ;
+            try {
+                test2 = myObject.getJSONArray("mandi");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            JSONArray test = sortJsonArrayPrice(test2);
+
             for ( int i = 0; i < test.length() ; i++)
             {
                 try {
@@ -179,7 +205,7 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
                     {item=test.getJSONObject(i).getString("Commodity");
                         namelist.add(item);
                         pricelist.add(test.getJSONObject(i).getString("Modal_x0020_Price"));
-                        if(test.getJSONObject(i).optString("nu")!=null && !test.getJSONObject(i).optString("nu").equals("") )
+                        if(!test.getJSONObject(i).optString("nu").equals(""))
                             nvaluelist.add(test.getJSONObject(i).optString("nu"));
                         else
                             nvaluelist.add("23");
@@ -191,6 +217,26 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
         }
         else if(mPosition==2)
         {
+
+
+            JSONObject myObject =null;
+
+            try {
+                myObject = new JSONObject(ingData);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            JSONArray test2 = new JSONArray() ;
+            try {
+                test2 = myObject.getJSONArray("mandi");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            JSONArray test = sortJsonArrayPrice(test2);
+
+
             for ( int i = 0; i < test.length() ; i++)
             {
                 try {
@@ -198,7 +244,7 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
                     {item=test.getJSONObject(i).getString("Commodity");
                         namelist.add(item);
                         pricelist.add(test.getJSONObject(i).getString("Modal_x0020_Price"));
-                        if(test.getJSONObject(i).optString("nu")!=null && !test.getJSONObject(i).optString("nu").equals("") )
+                        if(!test.getJSONObject(i).optString("nu").equals(""))
                             nvaluelist.add(test.getJSONObject(i).optString("nu"));
                         else
                             nvaluelist.add("23");
@@ -210,6 +256,25 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
         }
         else if(mPosition==3)
         {
+
+            JSONObject myObject =null;
+
+            try {
+                myObject = new JSONObject(ingData);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            JSONArray test2 = new JSONArray() ;
+            try {
+                test2 = myObject.getJSONArray("mandi");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            JSONArray test = sortJsonArrayPrice(test2);
+
+
             for ( int i = 0; i < test.length() ; i++)
             {
                 try {
@@ -217,7 +282,7 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
                     {item=test.getJSONObject(i).getString("Commodity");
                         namelist.add(item);
                         pricelist.add(test.getJSONObject(i).getString("Modal_x0020_Price"));
-                        if(test.getJSONObject(i).optString("nu")!=null && !test.getJSONObject(i).optString("nu").equals("") )
+                        if(!test.getJSONObject(i).optString("nu").equals(""))
                             nvaluelist.add(test.getJSONObject(i).optString("nu"));
                         else
                             nvaluelist.add("23");
@@ -229,6 +294,25 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
         }
         else if(mPosition==4)
         {
+
+            JSONObject myObject =null;
+
+            try {
+                myObject = new JSONObject(ingData);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            JSONArray test2 = new JSONArray() ;
+            try {
+                test2 = myObject.getJSONArray("mandi");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            JSONArray test = sortJsonArrayPrice(test2);
+
+
             for ( int i = 0; i < test.length() ; i++)
             {
                 try {
@@ -239,7 +323,7 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
 
 
 
-                        if(test.getJSONObject(i).optString("nu")!=null && !test.getJSONObject(i).optString("nu").equals("") )
+                        if(!test.getJSONObject(i).optString("nu").equals(""))
                             nvaluelist.add(test.getJSONObject(i).optString("nu"));
                         else
                             nvaluelist.add("23");
@@ -251,6 +335,26 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
         }
         else if(mPosition==5)
         {
+
+
+            JSONObject myObject =null;
+
+            try {
+                myObject = new JSONObject(ingData);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            JSONArray test2 = new JSONArray() ;
+            try {
+                test2 = myObject.getJSONArray("mandi");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            JSONArray test = sortJsonArrayPrice(test2);
+
+
             for ( int i = 0; i < test.length() ; i++)
             {
                 try {
@@ -258,7 +362,7 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
                     {item=test.getJSONObject(i).getString("Commodity");
                         namelist.add(item);
                         pricelist.add(test.getJSONObject(i).getString("Modal_x0020_Price"));
-                        if(test.getJSONObject(i).optString("nu")!=null && !test.getJSONObject(i).optString("nu").equals("") )
+                        if(!test.getJSONObject(i).optString("nu").equals(""))
                             nvaluelist.add(test.getJSONObject(i).optString("nu"));
                         else
                             nvaluelist.add("23");
@@ -270,6 +374,25 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
         }
         else if(mPosition==6)
         {
+
+            JSONObject myObject =null;
+
+            try {
+                myObject = new JSONObject(ingData);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            JSONArray test2 = new JSONArray() ;
+            try {
+                test2 = myObject.getJSONArray("mandi");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            JSONArray test = sortJsonArrayPrice(test2);
+
+
             for ( int i = 0; i < test.length() ; i++)
             {
                 try {
@@ -277,7 +400,7 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
                     {item=test.getJSONObject(i).getString("Commodity");
                         namelist.add(item);
                         pricelist.add(test.getJSONObject(i).getString("Modal_x0020_Price"));
-                        if(test.getJSONObject(i).optString("nu")!=null && !test.getJSONObject(i).optString("nu").equals("") )
+                        if(!test.getJSONObject(i).optString("nu").equals(""))
                             nvaluelist.add(test.getJSONObject(i).optString("nu"));
                         else
                             nvaluelist.add("23");
@@ -440,6 +563,68 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
 //        startActivity(new Intent(getActivity(), RecipeActivity.class));
 //    }
 
+
+    public static JSONArray sortJsonArrayPrice(JSONArray array) {
+        List<JSONObject> jsons = new ArrayList<JSONObject>();
+        for (int i = 0; i < array.length(); i++) {
+            try {
+                jsons.add(array.getJSONObject(i));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        Collections.sort(jsons, new Comparator<JSONObject>() {
+            @Override
+            public int compare(JSONObject lhs, JSONObject rhs) {
+                String lid = null;
+                try {
+                    lid = lhs.getString("Modal_x0020_Price");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                String rid = null;
+                try {
+                    rid = rhs.getString("Modal_x0020_Price");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                // Here you could parse string id to integer and then compare.
+                return lid.compareTo(rid);
+            }
+        });
+        return new JSONArray(jsons);
+    }
+
+    public static JSONArray sortJsonArrayValue(JSONArray array) {
+        List<JSONObject> jsons = new ArrayList<JSONObject>();
+        for (int i = 0; i < array.length(); i++) {
+            try {
+                jsons.add(array.getJSONObject(i));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        Collections.sort(jsons, new Comparator<JSONObject>() {
+            @Override
+            public int compare(JSONObject lhs, JSONObject rhs) {
+                String lid = null;
+                try {
+                    lid = lhs.getString("vu");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                String rid = null;
+                try {
+                    rid = rhs.getString("vu");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                // Here you could parse string id to integer and then compare.
+                return lid.compareTo(rid);
+            }
+        });
+        return new JSONArray(jsons);
+    }
 
 
 }
