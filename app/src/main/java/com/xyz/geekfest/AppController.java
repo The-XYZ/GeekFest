@@ -18,17 +18,16 @@ public class AppController extends Application {
 
     private RequestQueue mRequestQueue;
     private ImageLoader mImageLoader;
-
+    LruBitmapCache mLruBitmapCache;
 
     private static AppController mInstance;
 
     @Override
     public void onCreate() {
         super.onCreate();
-
-
         mInstance = this;
         Parse.initialize(this, "bq70PZtCZbV6iMN0au1RkJ1O0M5itrx0cYLKpBlQ", "kKiN7pqRaRakESowecbZfqiCXYIFEAzsdo5fYRli");
+
 
     }
 
@@ -44,6 +43,21 @@ public class AppController extends Application {
         return mRequestQueue;
     }
 
+    public ImageLoader getImageLoader() {
+        getRequestQueue();
+        if (mImageLoader == null) {
+            getLruBitmapCache();
+            mImageLoader = new ImageLoader(this.mRequestQueue, mLruBitmapCache);
+        }
+
+        return this.mImageLoader;
+    }
+
+    public LruBitmapCache getLruBitmapCache() {
+        if (mLruBitmapCache == null)
+            mLruBitmapCache = new LruBitmapCache();
+        return this.mLruBitmapCache;
+    }
 
     public <T> void addToRequestQueue(Request<T> req, String tag) {
         req.setTag(TextUtils.isEmpty(tag) ? TAG : tag);

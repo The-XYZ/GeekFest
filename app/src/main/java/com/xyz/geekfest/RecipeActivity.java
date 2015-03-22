@@ -1,5 +1,6 @@
 package com.xyz.geekfest;
 
+import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -13,7 +14,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -21,13 +21,17 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.NetworkImageView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+
+import fr.castorflex.android.smoothprogressbar.SmoothProgressBar;
 
 public class RecipeActivity extends ActionBarActivity {
 
@@ -36,7 +40,7 @@ public class RecipeActivity extends ActionBarActivity {
     ArrayList<String> recipelist = new ArrayList<String>();
     ArrayList<String> youtubelist = new ArrayList<String>();
     ArrayList<String> imagelist = new ArrayList<String>();
-
+    SmoothProgressBar progressBar;
 
     ArrayList<EachRow3> list3 = new ArrayList<RecipeActivity.EachRow3>();
 
@@ -44,6 +48,7 @@ public class RecipeActivity extends ActionBarActivity {
 
    MyAdapter3 q;
     EachRow3 each;
+    ImageLoader imageLoader=AppController.getInstance().getImageLoader();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +59,8 @@ public class RecipeActivity extends ActionBarActivity {
 
 
         mListView = (ListView)findViewById(R.id.recycler_view);
+        getSupportActionBar().setElevation(0);
+        progressBar=(SmoothProgressBar) findViewById(R.id.google_now);
 
         q = new MyAdapter3(getApplicationContext(), 0, list3);
         q.setNotifyOnChange(true);
@@ -99,6 +106,7 @@ public class RecipeActivity extends ActionBarActivity {
                         }
 
                         mListView.setAdapter(q);
+                        progressBar.setVisibility(View.GONE);
 
 
 
@@ -115,6 +123,7 @@ public class RecipeActivity extends ActionBarActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d("LOL", "Error: " + error.getMessage());
+                progressBar.setVisibility(View.GONE);
 
             }
         });
@@ -172,7 +181,15 @@ public class RecipeActivity extends ActionBarActivity {
                 holder.textView = (TextView) convertView.findViewById(R.id.textview_name);
                 holder.youtubeButton = (Button) convertView.findViewById(R.id.youtube);
                 holder.recipeButton = (Button) convertView.findViewById(R.id.recipe);
-                holder.imageView  = (ImageView) convertView.findViewById(R.id.image_name);
+                holder.recipeButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        FragmentManager fm = getFragmentManager();
+                        RecipeDialog dialog = new RecipeDialog();
+                        dialog.show(fm, "fragment_dialog");
+                    }
+                });
+                holder.imageView  = (NetworkImageView) convertView.findViewById(R.id.image_name);
 
                 convertView.setTag(holder);
             }
@@ -193,7 +210,7 @@ public class RecipeActivity extends ActionBarActivity {
                 }
             });
             holder.recipeButton.setText("View Recipe");
-            holder.imageView.setImageResource(R.drawable.cook);
+            holder.imageView.setImageUrl(row.cimage,imageLoader);
 
             // image
             // value
@@ -208,7 +225,7 @@ public class RecipeActivity extends ActionBarActivity {
         private class ViewHolder {
 
             public TextView textView;
-            public ImageView imageView;
+            public NetworkImageView imageView;
             public Button youtubeButton;
             public Button recipeButton;
 
