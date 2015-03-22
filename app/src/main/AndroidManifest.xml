@@ -37,7 +37,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Helperclasses.RecipeActivity"
+            android:name=".RecipeActivity"
             android:label="@string/title_activity_recipe"
             android:parentActivityName=".MainActivity" >
             <meta-data
