@@ -3,18 +3,21 @@ package com.xyz.geekfest;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.Toast;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.getbase.floatingactionbutton.FloatingActionButton;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -24,14 +27,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
-
-import com.getbase.floatingactionbutton.FloatingActionButton;
-
-import java.util.ArrayList;
 
 import it.moondroid.coverflow.components.ui.containers.FeatureCoverFlow;
 
@@ -377,7 +372,7 @@ public class Budget extends ActionBarActivity {
         }
         if(name.equals("potato"))
         {
-            return BitmapFactory.decodeResource(getResources(), R.drawable.potato);
+            return BitmapFactory.decodeResource(getResources(), R.drawable.potatoes);
 
         }
         if(name.equals("rice"))
@@ -402,7 +397,7 @@ public class Budget extends ActionBarActivity {
         }
         if(name.equals("cottage cheese"))
         {
-            return BitmapFactory.decodeResource(getResources(), R.drawable.dal);
+            return BitmapFactory.decodeResource(getResources(), R.drawable.cottage_cheese);
 
         }
 

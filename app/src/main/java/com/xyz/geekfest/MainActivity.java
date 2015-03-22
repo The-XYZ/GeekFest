@@ -58,7 +58,9 @@ public class MainActivity extends ActionBarActivity implements ScrollTabHolder, 
     private SpannableString mSpannableString;
     private AlphaForegroundColorSpan mAlphaForegroundColorSpan;
 
-    int[] drawable={R.drawable.one,R.drawable.two,R.drawable.three,R.drawable.four,R.drawable.five};
+
+    int[] drawable={R.drawable.two,R.drawable.three,R.drawable.four,R.drawable.five};
+
 
 
 
