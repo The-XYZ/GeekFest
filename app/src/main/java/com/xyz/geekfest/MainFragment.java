@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -36,6 +37,8 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
 
     private static final String ARG_POSITION = "position";
 
+    Button recipe ;
+
     private ListView mListView;
     private ArrayList<String> mListItems;
     SmoothProgressBar progressBar;
@@ -47,6 +50,8 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
 
     ArrayList<String> namelist = new ArrayList<String>();
     ArrayList<String> pricelist = new ArrayList<String>();
+    ArrayList<String> nvaluelist = new ArrayList<String>();
+
     ArrayList<EachRow3> list3 = new ArrayList<MainFragment.EachRow3>();
 
 
@@ -112,6 +117,15 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
         q = new MyAdapter3(getActivity(), 0, list3);
         q.setNotifyOnChange(true);
 
+        recipe = (Button)  v.findViewById(R.id.recipeButton);
+        recipe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                  startActivity(new Intent(getActivity(), RecipeActivity.class));
+
+            }
+        });
+
         String ingData = null ;
 
         ingData =loadJSONFromAsset();
@@ -141,6 +155,10 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
                     {
                         namelist.add(test.getJSONObject(i).getString("Commodity"));
                         pricelist.add(test.getJSONObject(i).getString("Modal_x0020_Price"));
+                        if(test.getJSONObject(i).optString("nu")!=null && !test.getJSONObject(i).optString("nu").equals("") )
+                            nvaluelist.add(test.getJSONObject(i).optString("nu"));
+                        else
+                            nvaluelist.add("23");
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -156,6 +174,10 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
                     {
                         namelist.add(test.getJSONObject(i).getString("Commodity"));
                         pricelist.add(test.getJSONObject(i).getString("Modal_x0020_Price"));
+                        if(test.getJSONObject(i).optString("nu")!=null && !test.getJSONObject(i).optString("nu").equals("") )
+                            nvaluelist.add(test.getJSONObject(i).optString("nu"));
+                        else
+                            nvaluelist.add("23");
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -171,6 +193,10 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
                     {
                         namelist.add(test.getJSONObject(i).getString("Commodity"));
                         pricelist.add(test.getJSONObject(i).getString("Modal_x0020_Price"));
+                        if(test.getJSONObject(i).optString("nu")!=null && !test.getJSONObject(i).optString("nu").equals("") )
+                            nvaluelist.add(test.getJSONObject(i).optString("nu"));
+                        else
+                            nvaluelist.add("23");
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -186,6 +212,10 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
                     {
                         namelist.add(test.getJSONObject(i).getString("Commodity"));
                         pricelist.add(test.getJSONObject(i).getString("Modal_x0020_Price"));
+                        if(test.getJSONObject(i).optString("nu")!=null && !test.getJSONObject(i).optString("nu").equals("") )
+                            nvaluelist.add(test.getJSONObject(i).optString("nu"));
+                        else
+                            nvaluelist.add("23");
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -201,6 +231,10 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
                     {
                         namelist.add(test.getJSONObject(i).getString("Commodity"));
                         pricelist.add(test.getJSONObject(i).getString("Modal_x0020_Price"));
+                        if(test.getJSONObject(i).optString("nu")!=null && !test.getJSONObject(i).optString("nu").equals("") )
+                            nvaluelist.add(test.getJSONObject(i).optString("nu"));
+                        else
+                            nvaluelist.add("23");
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -216,6 +250,10 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
                     {
                         namelist.add(test.getJSONObject(i).getString("Commodity"));
                         pricelist.add(test.getJSONObject(i).getString("Modal_x0020_Price"));
+                        if(test.getJSONObject(i).optString("nu")!=null && !test.getJSONObject(i).optString("nu").equals("") )
+                            nvaluelist.add(test.getJSONObject(i).optString("nu"));
+                        else
+                            nvaluelist.add("23");
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -231,6 +269,12 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
                     {
                         namelist.add(test.getJSONObject(i).getString("Commodity"));
                         pricelist.add(test.getJSONObject(i).getString("Modal_x0020_Price"));
+                        if(test.getJSONObject(i).optString("nu")!=null && !test.getJSONObject(i).optString("nu").equals("") )
+                            nvaluelist.add(test.getJSONObject(i).optString("nu"));
+                        else
+                            nvaluelist.add("23");
+
+
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -245,7 +289,7 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
             each.cname = namelist.get(i) ;
             each.cprice = pricelist.get(i) ;
             // each.cpic  = ;
-            // each.cvalue = ;
+            each.cvalue = nvaluelist.get(i);
 
             list3.add(each);
         }
@@ -254,13 +298,6 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
 
         return v;
     }
-
-
-
-
-
-
-
 
 
 
@@ -328,6 +365,7 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
 
             holder.ingName.setText(row.cname);
             holder.ingPrice.setText(row.cprice);
+            holder.ingNV.setText(row.cvalue);
 
             // image
             // value
@@ -367,12 +405,12 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
     }
 
 
-    public void Openrecipe()
-    {
-
-
-        startActivity(new Intent(getActivity(), RecipeActivity.class));
-    }
+//    public void Openrecipe()
+//    {
+//
+//
+//        startActivity(new Intent(getActivity(), RecipeActivity.class));
+//    }
 
 
 
