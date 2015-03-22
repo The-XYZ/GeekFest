@@ -1,9 +1,11 @@
 package com.xyz.geekfest;
 
+import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
@@ -15,9 +17,12 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import com.android.volley.toolbox.NetworkImageView;
 import com.getbase.floatingactionbutton.FloatingActionButton;
 
 import org.json.JSONArray;
@@ -29,10 +34,24 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import fr.castorflex.android.smoothprogressbar.SmoothProgressBar;
 import it.moondroid.coverflow.components.ui.containers.FeatureCoverFlow;
 
 
 public class Budget extends ActionBarActivity {
+
+
+    ArrayList<String> namelist = new ArrayList<String>();
+    ArrayList<String> costlist = new ArrayList<String>();
+    ArrayList<Bitmap> piclist = new ArrayList<Bitmap>();
+
+
+    ArrayList<EachRow3> list3 = new ArrayList<Budget.EachRow3>();
+
+
+    MyAdapter3 q;
+    EachRow3 each;
+    ListView mListView;
 
     AutoCompleteTextView textView;
     ArrayAdapter<String> adapter;
@@ -41,8 +60,8 @@ public class Budget extends ActionBarActivity {
     String cost ;
 
 
-    private FeatureCoverFlow mCoverFlow;
-    private CoverFlowAdapter mAdapter ;
+//    private FeatureCoverFlow mCoverFlow;
+//    private CoverFlowAdapter mAdapter ;
     private FloatingActionButton createDream;
     private ArrayList<DreamEntity> mData = new ArrayList<>(0);
 
@@ -51,10 +70,19 @@ public class Budget extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_budget);
 
-        mAdapter = new CoverFlowAdapter(getApplicationContext());
-        mCoverFlow = (FeatureCoverFlow) findViewById(R.id.coverflow);
-//        createDream =(FloatingActionButton)findViewById(R.id.fab);
 
+
+        mListView = (ListView)findViewById(R.id.recycler_view);
+        getSupportActionBar().setElevation(0);
+
+        q = new MyAdapter3(getApplicationContext(), 0, list3);
+        q.setNotifyOnChange(true);
+
+
+//        mAdapter = new CoverFlowAdapter(getApplicationContext());
+//        mCoverFlow = (FeatureCoverFlow) findViewById(R.id.coverflow);
+////        createDream =(FloatingActionButton)findViewById(R.id.fab);
+//
 
         List<String> responseList = new ArrayList<String>();
         adapter = new ArrayAdapter<String>(this,
@@ -86,6 +114,7 @@ public class Budget extends ActionBarActivity {
 
          textView = (AutoCompleteTextView)
                 findViewById(R.id.Months);
+        textView.setThreshold(1);
         textView.setAdapter(adapter);
 
 
@@ -125,7 +154,10 @@ public class Budget extends ActionBarActivity {
                     for (int i = 0; i < array2.length(); i++) {
                         try {
                             Bitmap pic = givepic(array2.getJSONObject(i).getString("iname"));
-                            mData.add(new DreamEntity(pic, array2.getJSONObject(i).getString("iname"), array2.getJSONObject(i).getString("cost") ));
+                            namelist.add(array2.getJSONObject(i).getString("iname"));
+                            costlist.add(array2.getJSONObject(i).getString("cost"));
+                            piclist.add(pic);
+
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -149,8 +181,9 @@ public class Budget extends ActionBarActivity {
                     for (int i = 0; i < array2.length(); i++) {
                         try {
                             Bitmap pic = givepic(array2.getJSONObject(i).getString("iname"));
-                            mData.add(new DreamEntity(pic, array2.getJSONObject(i).getString("iname"), array2.getJSONObject(i).getString("cost") ));
-
+                            namelist.add(array2.getJSONObject(i).getString("iname"));
+                            costlist.add(array2.getJSONObject(i).getString("cost"));
+                            piclist.add(pic);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -172,8 +205,10 @@ public class Budget extends ActionBarActivity {
                     }
                     for (int i = 0; i < array2.length(); i++) {
                         try {
-                            Bitmap pic = givepic(array2.getJSONObject(i).getString("iname"));
-                            mData.add(new DreamEntity(pic, array2.getJSONObject(i).getString("iname"), array2.getJSONObject(i).getString("cost") ));
+                         Bitmap pic = givepic(array2.getJSONObject(i).getString("iname"));
+                            namelist.add(array2.getJSONObject(i).getString("iname"));
+                            costlist.add(array2.getJSONObject(i).getString("cost"));
+                            piclist.add(pic);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -196,16 +231,35 @@ public class Budget extends ActionBarActivity {
                     for (int i = 0; i < array2.length(); i++) {
                         try {
                             Bitmap pic = givepic(array2.getJSONObject(i).getString("iname"));
-                            mData.add(new DreamEntity(pic, array2.getJSONObject(i).getString("iname"), array2.getJSONObject(i).getString("cost") ));
+                            namelist.add(array2.getJSONObject(i).getString("iname"));
+                            costlist.add(array2.getJSONObject(i).getString("cost"));
+                            piclist.add(pic);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
                     }
                 }
 
+                for(int i =0 ; i <namelist.size() ; i++)
+                {
+                    each = new EachRow3();
+                    each.name = namelist.get(i) ;
+//                            each.crecipe = pricelist.get(i) ;
+                    // each.cpic  = ;
+                    each.price = costlist.get(i);
+                    each.pic = piclist.get(i);
 
-                mAdapter.setData(mData);
-                mCoverFlow.setAdapter(mAdapter);
+
+
+                    list3.add(each);
+                }
+
+
+                mListView.setAdapter(q);
+
+
+//                mAdapter.setData(mData);
+//                mCoverFlow.setAdapter(mAdapter);
 
 
             }
@@ -217,17 +271,17 @@ public class Budget extends ActionBarActivity {
 
 
 
-        mCoverFlow.setOnScrollPositionListener(new FeatureCoverFlow.OnScrollPositionListener() {
-            @Override
-            public void onScrolledToPosition(int position) {
-//                mTitle.setText((mData.get(position).data));
-            }
-
-            @Override
-            public void onScrolling() {
-//                mTitle.setText("");
-            }
-        });
+//        mCoverFlow.setOnScrollPositionListener(new FeatureCoverFlow.OnScrollPositionListener() {
+//            @Override
+//            public void onScrolledToPosition(int position) {
+////                mTitle.setText((mData.get(position).data));
+//            }
+//
+//            @Override
+//            public void onScrolling() {
+////                mTitle.setText("");
+//            }
+//        });
 
     }
 
@@ -283,80 +337,6 @@ public class Budget extends ActionBarActivity {
 
 
 
-    public class CoverFlowAdapter extends BaseAdapter {
-
-        private ArrayList<DreamEntity> mData = new ArrayList<>(0);
-        private Context mContext;
-
-        public CoverFlowAdapter(Context context) {
-            mContext = context;
-        }
-
-        public void setData(ArrayList<DreamEntity> data) {
-            mData = data;
-        }
-
-        @Override
-        public int getCount() {
-            return mData.size();
-        }
-
-        @Override
-        public Object getItem(int pos) {
-            return mData.get(pos);
-        }
-
-        @Override
-        public long getItemId(int pos) {
-            return pos;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-
-            View rowView = convertView;
-
-            if (rowView == null) {
-                LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                rowView = inflater.inflate(R.layout.item_coverflow, null);
-
-                ViewHolder viewHolder = new ViewHolder();
-                viewHolder.name = (TextView) rowView.findViewById(R.id.name);
-                viewHolder.image = (ImageView) rowView.findViewById(R.id.image);
-                viewHolder.price = (TextView) rowView.findViewById(R.id.price);
-
-//                viewHolder.mood = (TextView) rowView.findViewById(R.id.mood);
-
-                rowView.setTag(viewHolder);
-            }
-
-
-
-            ViewHolder holder = (ViewHolder) rowView.getTag();
-
-
-
-            Bitmap bitmap = mData.get(position).pic;
-
-            holder.image.setImageBitmap(bitmap);
-
-
-            holder.price.setText(mData.get(position).price);
-//        holder.mood.setText(mData.get(position).mood);
-            holder.name.setText(mData.get(position).name);
-
-
-            return rowView;
-        }
-
-
-        public class ViewHolder {
-            public TextView price;
-            public ImageView image;
-            public TextView name;
-        }
-    }
-
     public Bitmap givepic(String name)
     {
         if(name.equals("dal"))
@@ -399,15 +379,105 @@ public class Budget extends ActionBarActivity {
             return BitmapFactory.decodeResource(getResources(), R.drawable.carrot);
 
         }
+        if(name.equals("spinach"))
+        {
+            return BitmapFactory.decodeResource(getResources(), R.drawable.carrot);
+
+        }
         if(name.equals("cottage cheese"))
         {
             return BitmapFactory.decodeResource(getResources(), R.drawable.cottage_cheese);
 
         }
 
-
             return BitmapFactory.decodeResource(getResources(), R.drawable.dal);
 
     }
+
+
+
+
+    class MyAdapter3 extends ArrayAdapter<EachRow3> {
+        LayoutInflater inflat;
+        ViewHolder holder;
+
+        public MyAdapter3(Context context, int textViewResourceId,
+                          ArrayList<EachRow3> objects) {
+            super(context, textViewResourceId, objects);
+            // TODO Auto-generated constructor stub
+            inflat = LayoutInflater.from(context);
+        }
+
+        @Override
+        public View getView(final int position, View convertView, ViewGroup parent) {
+            // TODO Auto-generated method stub
+            final int pos=position;
+
+            if (convertView == null) {
+                convertView = inflat.inflate(R.layout.card_list_item2, null);
+                holder = new ViewHolder();
+
+
+                holder.textViewname = (TextView) convertView.findViewById(R.id.textview_name);
+                holder.textViewprice = (TextView) convertView.findViewById(R.id.textview_price);
+
+                holder.imageView  = (NetworkImageView) convertView.findViewById(R.id.image_name);
+
+                convertView.setTag(holder);
+            }
+            holder = (ViewHolder) convertView.getTag();
+            EachRow3 row = getItem(position);
+//            Log.d("size", row.text);
+
+            Bitmap b= row.pic;
+
+            holder.imageView.setImageBitmap(b);
+
+            holder.textViewname.setText(row.name);
+            holder.textViewprice.setText(row.price);
+
+//
+//            holder.imageView.setImageUrl(row.cimage,imageLoader);
+
+            // image
+            // value
+
+            return convertView;
+
+        }
+
+
+
+
+        private class ViewHolder {
+
+            public TextView textViewname;
+            public TextView textViewprice;
+
+            public NetworkImageView imageView;
+
+
+        }
+
+
+        @Override
+        public EachRow3 getItem(int position) {
+            // TODO Auto-generated method stub
+            return list3.get(position);
+        }
+
+    }
+
+
+
+
+    private class EachRow3
+    {
+        public String name;
+        public String price;
+
+        public Bitmap pic;
+    }
+
 
 }
