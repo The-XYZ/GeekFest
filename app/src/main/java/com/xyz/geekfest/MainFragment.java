@@ -486,6 +486,7 @@ public class MainFragment  extends ScrollTabHolderFragment implements AbsListVie
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent=new Intent(getActivity(),DetailFood.class);
                 intent.putExtra("name",namelist.get(position-1));
+                intent.putExtra("price",pricelist.get(position-1));
                 Log.d("lol",item);
                 startActivity(intent);
             }
